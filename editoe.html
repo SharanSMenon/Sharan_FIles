@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Classes</title>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="editoe.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+<body>
+  <nav>
+    <a href="#todo"><button type="button" name="button">Todo</button></a> |
+    <a href="#angul"><button type="button" name="button">Angular JS</button></a> |
+    <a href="#simcal"><button type="button" name="button">Simple Cal</button></a> |
+    <a href="#personn"><button type="button" name="button">Person</button></a> |
+    <a href="#weird"><button type="button" name="button">Weird Things</button></a> |
+    <a href="#jahnvi"><button type="button" name="button">Jahnvi's stories</button></a> |
+    <a href="#cssAnim"><button type="button" name="button">CSS animations</button></a> |
+    <a href="#scien"><button type="button" name="button">Scientific classifications</button></a> |
+    <a href="#accordion"><button type="button" name="button">Accordions</button></a> |
+    <a href="#junk"><button type="button" name="button">End of page junk</button></a> |
+  </nav>
+  <br>
+  <h1 id="todo">This is your to-do list</h1>
+  <h3>It will soon be connected to a database which will save your input</h3>
+  <div id="myDIV" class="header">
+    <h2 style="margin:5px">To do list</h2>
+    <input type="text" id="alert_text" onkeypress="return enterChecker(event)"placeholder="Title...">
+    <span onclick="newElement()" class="addBtn">Add</span><span onclick="clearList()" class="addBtn">Clear</span>
+  </div>
+  <ul id="myUL" class="check">
+  </ul>
+  <br>
+  <hr>
+  <!-- Trigger/Open The Modal -->
+  <button id="myBtn">Click to launch</button>
+  <br>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Hello!</h2>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="alert success">
+          <span class="closebtn">&times;</span>
+          <strong>Please continue on to the page</strong>
+        </div>
+        <div class="note">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <h3>&copy;2017 Sharan Sajiv Menon</h3>
+      </div>
+    </div>
+
+  </div>
+<br>
+<br>
+<br>
+<div class="angul" id="angul" ng-app="" ng-init="myCol='green'" style="width:400px;background-color:#eee;">
+  <h1>Angular JS</h1>
+  <br><br>
+  <hr>
+  <h2>Color copier</h2>
+  Enter color name: <input ng-model="myCol" value="{{myCol}}">
+  <br><br>
+  <div ng-app="" ng-init="myCol='green'" style="background-color:{{myCol}};padding:12px 8px 12px 25px;width:270px;border:1px solid #474644">
+    <p>The background color is <span ng-bind="myCol"></span></p>
+  </div>
+  <hr>
+  <h2>Cost calculator</h2>
+  <div ng-app="" ng-init="q=0;p=0">
+    Cost: <input type="number" ng-model="p">
+    <br><br>
+    Quantity: <input type="number" ng-model="q">
+    <p><strong>Price of items: $</strong>{{q*p}}</p>
+  </div>
+  <hr>
+  <h2>Text copier</h2>
+  <div ng-app="" ng-init="texxt='Hi'">
+    Type some text: <input type="text" ng-model="texxt">
+    <p>You entered: {{texxt}}</p>
+  </div>
+  <hr>
+  <h2>List copier</h2>
+  <div ng-app="app" ng-init="listng=['Beginning','Middle','End']">
+    <div class="header" style="width:280px;">
+      <h2>3 part list</h2>
+    </div>
+    <ul style="width:360px;">
+      <li ng-repeat=" x in listng">{{x}}</li>
+    </ul>
+  </div>
+  <hr>
+</div>
+<br>
+</div>
+<br>
+<br>
+<div class="" style="width:700px; background-color:#eee;padding:12px 8px 12px 20px;">
+  <h2 id="simcal">Simple Calculator</h2>
+  <form oninput="c.value=parseInt(a.value)+parseInt(b.value)">
+  <h3>Addition</h3>
+  <input type="number" id="a"> + <input type="number" id="b"> = <output name="c"></output>
+  </form>
+  <br>
+  <hr>
+  <form oninput="f.value=parseInt(d.value)-parseInt(e.value)">
+  <h3>Subtraction</h3>
+  <input type="number" id="d"> - <input type="number" id="e"> = <output name="f"></output>
+  </form>
+  <br>
+  <hr>
+  <form oninput="i.value=parseInt(g.value)*parseInt(h.value)">
+  <h3>Multiplication</h3>
+  <input type="number" id="g"> &times; <input type="number" id="h"> = <output id="i"></output>
+  </form>
+  <br>
+  <hr>
+  <form oninput="l.value=parseInt(j.value)/parseInt(k.value)">
+  <h3>Division</h3>
+  <input type="number" id="j"> &divide; <input type="number" id="k"> = <output id="l"></output>
+  </form>
+</div>
+  <br>
+<div class="note">
+  <p>Welcome to this page. It will be full of notes and alerts like this.<p>
+</div>
+<br id="personn">
+Person: <input class="dominf"><button class="submit">Submit</button>
+<br><br>
+<table>
+  <tbody>
+    <tr>
+    <th>Person</th>
+    </tr>
+    <tr>
+      <td>Sharan</td>
+    </tr>
+    <tr>
+      <td>Sajiv</td>
+    </tr>
+    <tr>
+      <td>Jahnvi</td>
+    </tr>
+    <tr>
+      <td>Anu</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<div class="person-inf">
+	<h2 id="name"></h2>
+    <p id="age">Age:</p>
+    <p id="weight">Weight:</p>
+    <p id="height">Height:</p>
+    <p id="email">Email:</p>
+</div>
+<br>
+<div class="header" style="height:100px;">
+  <h1>Stuff in summer</h1>
+</div>
+<ul id="summer-ul" class="check">
+  <li id="list1">s</li>
+  <li id="list2">d</li>
+</ul>
+<br id="weird">
+<div class="alert">
+  <span class="closebtn">&times;</span>
+  <strong>Alert!</strong> You have been arrested.
+</div>
+
+<div class="alert success">
+  <span class="closebtn">&times;</span>
+  <strong>Congrats!</strong> You have been given $1000.
+</div>
+
+<div class="alert info">
+  <span class="closebtn">&times;</span>
+  <strong>Meeting alert!</strong> You have a meeting for <time>11:00 AM</time>.
+</div>
+
+<div class="alert warning">
+  <span class="closebtn">&times;</span>
+  <strong>Warning!</strong> Your credit card has expired.
+</div>
+<div class="alert primary">
+  <span class="closebtn">&times;</span>
+  <strong>Please log in!</strong> You have been logged out due to a long period of inactivity
+</div>
+<div class="alert primary">
+  <span class="closebtn">&times;</span>
+  <strong>News alert!</strong> Mayors are taking action so that they are not the next Charlottesville.
+</div>
+<div class="alert">
+  <span class="closebtn">&times;</span>
+  <strong>Weather watch!</strong> There is a flash flood warning issued for this area till <time>1:00 PM</time>
+</div>
+<div class="alert info">
+  <span class="closebtn">&times;</span>
+  <strong>Extra Notification! </strong>Please read Jahnvi's stories
+</div>
+<div class="head1 head" onclick="slider(1);">
+  <p>Who is the president of the USA?<br>Click to find out!</p>
+</div>
+<div class="data1 data" onclick="slider(1);">
+  <p>The president os the USA is Donald Trump.</p>
+</div>
+<br>
+<div class="head2 head" onclick="slider(2);">
+  <p>Who are the creators of this page?<br>Click to find out!</p>
+</div>
+<div class="data2 data" onclick="slider(2);">
+  <p>The creators are Sharan and Jahnvi.</p>
+</div>
+<br>
+<div class="head3 head" onclick="slider(3);">
+  <p>Who is the Prime Minister of India?<br>Click to find out!</p>
+</div>
+<div class="data3 data" onclick="slider(3);">
+  <p>The Prime Minister of India is Narendra Modi.</p>
+</div>
+<br>
+<div class="head4 head" onclick="slider(4);">
+  <p>What does North Korea want?<br>Click to find out!</p>
+</div>
+<div class="data4 data" onclick="slider(4);">
+  <p>To destroy the USA.</p>
+</div>
+<br>
+<h1 id="jahnvi">Jahnvi's Stories</h1>
+<h2>Click on one of the 10 tabs</h2>
+<br>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 's1')">1</button>
+  <button class="tablinks" onclick="openCity(event, 's2')">2</button>
+  <button class="tablinks" onclick="openCity(event, 's3')">3</button>
+  <button class="tablinks" onclick="openCity(event, 's4')">4</button>
+  <button class="tablinks" onclick="openCity(event, 's5')">5</button>
+  <button class="tablinks" onclick="openCity(event, 's6')">6</button>
+  <button class="tablinks" onclick="openCity(event, 's7')">7</button>
+  <button class="tablinks" onclick="openCity(event, 's8')">8</button>
+  <button class="tablinks" onclick="openCity(event, 's9')">9</button>
+  <button class="tablinks" onclick="openCity(event, 's10')">10</button>
+</div>
+
+<div id="s1" class="tabcontent">
+  <h1>Making of a friend</h1>
+  <h3>By Jahnvi Sajiv Menon</h3>
+  <p>Once upon a time, there were 3 little girls. They were best friends. They  had a flying bed, it was able to fit all three of them. But one day, their moms said that they were going to move to the country side and their enemy <i>Nesa</i> was coming because her parents were in Pennsylnvania for 8 days. The 3 girls started to pack and the next day, they left. They reached the  country side after an 8 hour journey. They ate supper and retired to their flying beds to sleep and one of them had to sleep with <i>Nesa</i> so they had to go on a flying journey with <i>Nesa</i>. Theirs moms kissed them goodnight and went to bed. Then the girls told <i>Nesa</i> about their flying adventures and <i>Nesa</i> replied <q>I don't want to come. I am going to sleep on the floor</q> in a really danvi-like voice. They commanded their beds to fly so their beds got their red, yellow, pink wings and they turned small to get out of the window and turned big when they got out again.Then they went above the clouds and they stated to fly somewhere. While the bed was flying, the 3 girls was just laying down on the bed. The bed started to dive so the girls held on for their lives. In the meanwhile, <i>Nesa</i> was wating for them to come back. Then the bed landed in an island. The girls looked down on the island and they saw a big fat tree and they tried to open the door but it wouldn't budge. The girls saw a <button>button</button> and they decided to press it. The <button>button</button> opened the door and they saw a big beautiful pathway. They stared at it for a minute and started to walk through. At last, they ended up in a <b>beautiful</b> forest. There are 3 trees with little necklaces. The 3 necklaces had a little amulet which were the colors of the beds. The girls knew that it was almost morning so they went to their beds and flew home. The next day, they eat breakfast, got ready and went out to explore the country side. While they were exploring, they found a mansion and and pretty little girl with red hair came out. She asked <q>Who are you guys and why were you knocking in my door?</q>. The girls replied <q>I am Molly, she is Christine, and she is Jennifer</q>. Molly asked <q>Who are you?</q>. The girl replied <q>My father is the mayor and I am Fiona</q>. Jennifer asked if they wanted to be friends and Fiona agreed. Fiona asked <q>Where is your home?</q>. Christine found a playground and all 4 of them went. They played for hours. Then it became suppertime so they went home and they said <q>I can't wait for my next adventure</q>.</p>
+  <img src="https://vignette1.wikia.nocookie.net/powerlisting/images/5/53/The-end.jpg/revision/latest?cb=20140329183737" alt="The End" width="80%"height="90%">
+</div>
+
+<div id="s2" class="tabcontent">
+  <h1>Fiona to the rescue part 1</h1>
+  <h3>By Jahnvi Sajiv Menon - changed by Sharan Sajiv Menon</h3>
+  <p>One day, when the 3 girls were at Jennifer's house playing, they were make IMovies🎬 of each other (IMovie is a phone app which lets you edit movies). Jennifer and Christine were on their beds. Molly forgot bring her bed. Later, they started to play Video Games🎮. Then, it was evening time, so after their evening tea, Christine left because she had to get some supplies. There was still 4 more months of school and they had a big project due at the end the the school year. All three of them were working together on their project. Molly had supplies in her bed so she needed to get her bed so the left. Christine came back with a lot of supplies but Molly came back with a worried face😥, no supplies or bed. Christine and Jennifer asked what is the matter and Molly said that her bed was missing. Jennifer replied <q>It might be Nesa, she is leaving today and she is our enemy.</q>. When they brought this matter to their moms, the moms said that they can get a new bed for Molly. They decided to take Fiona as this will be her first adventure. It became night so they went to bed. Molly had to sleep on the floor. After a bit, they slowly got out of bed and got each other out and they went to Fiona's and went to her window. Then, they slowly called Fiona and when Fiona asked about Molly's bed. They said that Nesa took it and Nesa took it so they pleaded for Fiona's help to get Molly's bed. Fiona got her boat to cross this humongus river and they sailed on the boat and reached the city in 3 hours. They found Nesa's house and Nesa was sleeping on Molly's bed. Molly opened her watch and pressed a <button>button</button> and a non-flying replica on Molly's bed came and they put Nesa on the replica and took the real bed. Then they heard some footsteps and they knew that Nesa's mom was coming so the 4 girls jumped on Molly's bed and and tried to leave but got caught by Nesa's mom. The only girl that esacped was Fiona. The 3 girls tried to fight Nesa's mom but Nesa's mom was too powerful for them and trapped the 3 girls in a dungeon to rot for life. Fiona had a plan. Only if she could get the keys to the dungeon, she could free the girls. But she only had 24 hours to do it. If she failed the task, Nesa's mom would engage in a super dangerous battle with the other girls moms and that battle would kill everybody on the planet. </p>
+  <p>Click tab 3 to continue reading</p>
+  <img src="https://t3.ftcdn.net/jpg/00/65/56/30/240_F_65563081_HiMNBfDh1If2QKhlFGwj0s3KeZEbjOKq.jpg" alt="To be continued" width="80%"height="90%">
+</div>
+
+<div id="s3" class="tabcontent">
+  <h1>Fiona to the rescue part 2</h1>
+  <h3>By Sharan Sajiv Menon</h3>
+  <p>Under construction</p>
+  <p>No content yet</p>
+  <img src="https://vignette1.wikia.nocookie.net/powerlisting/images/5/53/The-end.jpg/revision/latest?cb=20140329183737" alt="The End" width="80%"height="90%">
+</div>
+<div id="s4" class="tabcontent">
+  <h1>Fiona's best birthday</h1>
+  <h3>By Jahnvi Sajiv Menon</h3>
+  <p>Under construction</p>
+  <p>One day when Molly went out to see Fiona, Molly found Fiona's house decorated more than usual. There was a forest that they loved and there was a gate that showed bears🐻. Molly knocked on the door. Fiona's mom came out and said <q>Hello, you must be molly</q>. Molly replied yes and asked where is. Fiona's mom's said that it was Fiona's birthday and that Fiona was busy so she will be ready after one hour. Molly went to call Christine and Jennifer. After one hour, Christine and Jennifer came out and the three girls went to Fiona's house. Fiona came out and they wished Happy Birthday and Fiona asked for 3 more hours. The 3 girls replied yes and went out to plan FIona's birthday. They bought some cake, hats and clothes. Next, they set up a little stage for a small fashion show. They designed the party with crafts and glitter.</p>
+  <img src="https://vignette1.wikia.nocookie.net/powerlisting/images/5/53/The-end.jpg/revision/latest?cb=20140329183737" alt="The End" width="80%"height="90%">
+  <img src="https://vignette1.wikia.nocookie.net/powerlisting/images/5/53/The-end.jpg/revision/latest?cb=20140329183737" alt="The End" width="80%"height="90%">
+  </div>
+</div>
+<div id="s5" class="tabcontent">
+  <h1>Unnamed Story 2</h1>
+  <h3>By Jahnvi Sajiv Menon</h3>
+  <p>No content yet</p>
+  <img src="https://vignette1.wikia.nocookie.net/powerlisting/images/5/53/The-end.jpg/revision/latest?cb=20140329183737" alt="The End" width="80%"height="90%">
+</div>
+<div id="s6" class="tabcontent">
+  <h1>Unnamed Story 3</h1>
+  <h3>By Jahnvi Sajiv Menon</h3>
+  <p>No content yet</p>
+  <img src="https://vignette1.wikia.nocookie.net/powerlisting/images/5/53/The-end.jpg/revision/latest?cb=20140329183737" alt="The End" width="80%"height="90%">
+</div>
+<div id="s7" class="tabcontent">
+  <h1>Unnamed Story 4</h1>
+  <h3>By Jahnvi Sajiv Menon</h3>
+  <p>No content yet</p>
+  <img src="https://vignette1.wikia.nocookie.net/powerlisting/images/5/53/The-end.jpg/revision/latest?cb=20140329183737" alt="The End" width="80%"height="90%">
+</div>
+
+<div id="s8" class="tabcontent">
+  <h1>Unnamed Story 5</h1>
+  <h3>By Jahnvi Sajiv Menon</h3>
+  <p>No content yet</p>
+  <img src="https://vignette1.wikia.nocookie.net/powerlisting/images/5/53/The-end.jpg/revision/latest?cb=20140329183737" alt="The End" width="80%"height="90%">
+</div>
+
+<div id="s9" class="tabcontent">
+  <h1>Unnamed Story 6</h1>
+  <h3>By Jahnvi Sajiv Menon</h3>
+  <p>No content yet</p>
+  <img src="https://vignette1.wikia.nocookie.net/powerlisting/images/5/53/The-end.jpg/revision/latest?cb=20140329183737" alt="The End" width="80%"height="90%">
+</div>
+
+<div id="s10" class="tabcontent">
+  <h1>Unnamed Story 7</h1>
+  <h3>By Jahnvi Sajiv Menon</h3>
+  <p>No content yet</p>
+  <img src="https://vignette1.wikia.nocookie.net/powerlisting/images/5/53/The-end.jpg/revision/latest?cb=20140329183737" alt="The End" width="80%"height="90%">
+</div>
+<!--Tabs 2-->
+<br><br>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 't1')">Tab 1</button>
+  <button class="tablinks" onclick="openCity(event, 't2')">Tab 2</button>
+  <button class="tablinks" onclick="openCity(event, 't3')">Tab 3</button>
+  <button class="tablinks" onclick="openCity(event, 't4')">Tab 4</button>
+
+</div>
+
+<div id="t1" class="tabcontent">
+  <h1>Tab 1</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<div id="t2" class="tabcontent">
+  <h1>Tab 2</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<div id="t3" class="tabcontent">
+  <h1>Tab 3</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<div id="t4" class="tabcontent">
+  <h1>Tab 4</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+<br>
+<div class="note">
+  <p>Thank you for reading Jahnvi's stories</p>
+</div>
+<div class="alert success">
+  <span class="closebtn">&times;</span>
+  <strong>Connect! </strong>Please connect this computer to bluetooth.
+</div>
+<br><br><br>
+<h1 id="cssAnim">CSS Animations</h1>
+<div class="animbox">
+  <div style="height:50px;">
+
+  </div>
+  <div class="colorc">
+  <p>I am spinning and changing colors</p>
+  </div>
+  <div class="bigsma">
+  <p>I am growing and spinning</p>
+  </div>
+</div>
+<br>
+<h1 id="scien">Scientific classification of <span id="SpecNumber">5</span> species</h1>
+<p>Click on the species name to reveal info about them.</p>
+<div class="SpecName spe1" onclick="Speslider(1)">
+  <h2></em>Homo sapiens</em> (Modern Humans)</h2>
+</div>
+<div class="SpecInfo spi1">
+  <p>Domain: Eukaryota</p>
+  <p>Kingdom: Animalia</p>
+  <p>Phylum: Chordata</p>
+  <p>Class: Mammalia</p>
+  <p>Order: Primates</p>
+  <p>Family: Hominidae</p>
+  <p>Genus: Homo</p>
+  <p>Species: <em>Homo Sapiens</em></p>
+  <p>Fun Fact: <em>Homo Sapiens</em> are the last species <br> of humans that exists today.</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Akha_cropped_hires.JPG"  width="200px" height="300px">
+</div>
+<br>
+<div class="SpecName spe2" onclick="Speslider(2)">
+  <h2><em>Tyrannosaurus Rex</em></h2>
+</div>
+<div class="SpecInfo spi2">
+  <p>Domain: Eukaryota</p>
+  <p>Kingdom: Animalia</p>
+  <p>Phylum: Chordata</p>
+  <p>Class: Reptilia</p>
+  <p>Clade: Dinosauria</p>
+  <p>Order: Saurischia</p>
+  <p>Family: Tyrannosauridae</p>
+  <p>Genus: Tyrannosaurus</p>
+  <p>Species: <em>Tyrannosaurus Rex</em></p>
+  <p>Fun Fact: <em>Tyrannosaurus rex</em> is probably the most <br> famous dinosaur of all times</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Tyrannosaurus_Rex_Holotype.jpg/250px-Tyrannosaurus_Rex_Holotype.jpg"  width="200px" height="150px">
+</div>
+<br>
+<div class="SpecName spe3" onclick="Speslider(3)">
+  <h2><em>Elephas Maximus</em> (Asian Elephant)</h2>
+</div>
+<div class="SpecInfo spi3">
+  <p>Domain: Eukaryota</p>
+  <p>Kingdom: Animalia</p>
+  <p>Phylum: Chordata</p>
+  <p>Class: Mammalia</p>
+  <p>Order: Proboscidea</p>
+  <p>Family: Elephantidae</p>
+  <p>Genus: Elephas</p>
+  <p>Species: <em>Elephas Maximus</em></p>
+  <p>Fun Fact: <em>Elephas Maximus</em> can be found in India.</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Asiatic_Elephant_Kabini.jpg/220px-Asiatic_Elephant_Kabini.jpg"  width="200px" height="200px">
+</div>
+<br>
+<div class="SpecName spe4" onclick="Speslider(4)">
+  <h2><em>Python Reticulatus</em> (Reticulated Python)</h2>
+</div>
+<div class="SpecInfo spi4">
+  <p>Domain: Eukaryota</p>
+  <p>Kingdom: Animalia</p>
+  <p>Phylum: Chordata</p>
+  <p>Class: Reptilia</p>
+  <p>Order: Squamata</p>
+  <p>Family: Pythonidae</p>
+  <p>Genus: Python</p>
+  <p>Species: <em>Python Reticulatus</em></p>
+  <p>Fun Fact: <em>Python Reticulatas</em> is the largest snake native to Asia.</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Python_reticulatus_%D1%81%D0%B5%D1%82%D1%87%D0%B0%D1%82%D1%8B%D0%B9_%D0%BF%D0%B8%D1%82%D0%BE%D0%BD-2.jpg/220px-Python_reticulatus_%D1%81%D0%B5%D1%82%D1%87%D0%B0%D1%82%D1%8B%D0%B9_%D0%BF%D0%B8%D1%82%D0%BE%D0%BD-2.jpg"  width="200px" height="150px">
+</div>
+<br>
+<div class="SpecName spe5" onclick="Speslider(5)">
+  <h2><em>Amphiprion Percula</em> (Orange Clownfish)</h2>
+</div>
+<div class="SpecInfo spi5">
+  <p>Domain: Eukaryota</p>
+  <p>Kingdom: Animalia</p>
+  <p>Phylum: Chordata</p>
+  <p>Class: Actinopterygii</p>
+  <p>Order: Perciformes</p>
+  <p>Family: Pomacentridae</p>
+  <p>Genus: Amphiprion</p>
+  <p>Species: <em>Amphiprion Percula</em></p>
+  <p>Fun Fact: <em>Amphiprion Percula</em> can lay up to 1000 eggs at a time.</p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/A._percula.jpg"  width="200px" height="150px">
+</div>
+<br>
+<div class="note">
+  <p>Thank you also for looking at this website</p>
+</div>
+<script>
+  $(function() {
+    $("#accordion").accordion();
+  });
+  </script>
+<h1>First Accordion</h1>
+<div id="accordion" style="width:645px">
+  <h3>Hello</h3>
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <h3>Hello</h3>
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <h3>Hello</h3>
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <h3>Hello</h3>
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <h3>Hello</h3>
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <h3>Hello</h3>
+  <div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+<h1>Second Accordion</h1>
+<div>
+  <div onclick="Accslider(1)" class="acHed">Hello <i class="down i1"></i></div>
+  <div class="accordd accord1">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+
+  <br>
+  <div onclick="Accslider(2)" class="acHed">Hello <i class="down i2"></i></div>
+  <div class="accordd accord2">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <br>
+  <div onclick="Accslider(3)" class="acHed">Hello <i class="down i3"></i></div>
+  <div class="accordd accord3">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <br>
+  <div onclick="Accslider(4)" class="acHed">Hello <i class="down i4"></i></div>
+  <div class="accordd accord4">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <br>
+  <div onclick="Accslider(5)" class="acHed">Hello <i class="down i5"></i></div>
+  <div class="accordd accord5">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <br>
+  <div onclick="Accslider(6)" class="acHed">Hello <i class="down i6"></i></div>
+  <div class="accordd accord6">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+<br>
+<h1 id="junk">Fibonacci numbers</h1>
+<div class="Fibonacci">
+  <p id="fib1">Check the JS console to see the first 25 fibonacci numbers, or <br> you can look here:</p>
+  <p id="fib"></p>
+</div>
+<h1>Links</h1>
+<ul>
+  <li><a href="file:///C:/sharan/Sharan_website_files/stuff_in_summer.html">Stuff in summer</a></li>
+  <li><a href="file:///C:/sharan/Sharan_website_files/todo.html">Todo</a></li>
+  <li><a href="file:///C:/sharan/Sharan_website_files/tabs.html">Dinosaur info</a></li>
+</ul>
+<h1>Rotator</h1>
+<div class="rotateJS" style="width:100px;height:100px;background-color:red;">
+</div>
+<br>
+<h1>Time</h1>
+<p id="time"></p>
+<h1>Random</h1>
+<h1>Shape drawer</h1>
+<p>Open the console in dev tools and type <code>rect1.draw()</code> or <br> <code>cir1.draw()</code>. Then you can create a new rectangle like this: <br> <code>var VariableName = new rectangle(height,width,background color)</code>. <br> Height and Width must be numbers and background color <br>must be put into quotes like this: <q cite="">background-color</q>. If you want to create a new <br> circle, then type: <code>var VariableName = new circle(height,width,background color)</code>. <br>Same rules apply for the circle.</p>
+<br>
+<footer>Copyright &copy; 2017 Sharan Sajiv Menon All Rights Reserved.</footer>
+</body>
+<script src="editoe.js" charset="utf-8"></script>
+</html>
