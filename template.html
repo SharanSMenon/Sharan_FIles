@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Template</title>
+    <link rel="stylesheet" href="template.css">
+  </head>
+  <body>
+    <header>
+      <span class="menu" onclick="openN()">&#9776;</span>
+      <h1>Header</h1>
+      <div class="navig">
+        <span class="closeN" onclick="closeN()">&times;</span>
+        <h1>Link 1</h1>
+        <h1>Link 2</h1>
+        <h1>Link 3</h1>
+      </div>
+    </header>
+    <br><br><br><br><br><br>
+    <div class="container">
+      <div class="tabs">
+        <button type="button" onclick="openTab(event,0)" class="tablinks active">Tab 1</button>
+        <button type="button" onclick="openTab(event,1)" class="tablinks">Tab 2</button>
+        <button type="button" onclick="openTab(event,2)" class="tablinks">Tab 3</button>
+      </div>
+      <div class="tabcontent">
+        <h1>Tab 1</h1>
+      </div>
+      <div class="tabcontent">
+        <h1>Tab 2</h1>
+      </div>
+      <div class="tabcontent">
+        <h1>Tab 3</h1>
+      </div>
+      <br><br>
+      <div class="half" style="height:200px; background-color:lightgreen;">
+        <h1>Half</h1>
+      </div>
+      <div class="half" style="height:200px;">
+        <h1>Half</h1>
+      </div>
+      <div class="third" style="height:200px; background-color:lightgreen;">
+        <h1>Third</h1>
+      </div>
+      <div class="third" style="height:200px;">
+        <h1>Third</h1>
+      </div>
+      <div class="third" style="height:200px;">
+        <h1>Third</h1>
+      </div>
+      <div class="quarter" style="height:200px; background-color:lightgreen;">
+        <h1>Quarter</h1>
+      </div>
+      <div class="quarter" style="height:200px;">
+        <h1>Quarter</h1>
+      </div>
+      <div class="quarter" style="height:200px;">
+        <h1>Quarter</h1>
+      </div>
+      <div class="quarter" style="height:200px;">
+        <h1>Quarter</h1>
+      </div>
+      <!--Half-->
+      <button type="button" name="button">Launch modal</button>
+    </div>
+    <footer>
+      <h1>Footer</h1>
+    </footer>
+  </body>
+  <script src="template.js" charset="utf-8"></script>
+</html>

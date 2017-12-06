@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Tic-Tac-Toe</title>
+ </head>
+ <body>
+   <button type="button" name="button" style="margin-top:10px;"onclick="reset();">Reset</button>
+   <br>
+   <button type="button" name="button" style="margin-top:10px;width:70px;" onclick="myFunction();">Click to play in new window</button>
+   <p id="info"style="margin-top:12px;width:100px;">Player X turn</p>
+   <canvas id="canvas" width="600" height="600" style="background-color:black;border:1px solid black; margin-left:150px;margin-top:-150px;"></canvas>
+
+   <script type="text/javascript">
+   function myFunction() {
+     var myWindow = window.open("file:///C:/sharan/Sharan_website_files/tic-tac-toe2.html", "Tic-tac-toe", "width=900,height=700");
+   }
+     var canvas = document.getElementById('canvas');
+     var ctx = canvas.getContext("2d");
+     var turn = "X";
+     var grid = [[" "," "," "],[" "," "," "],[" "," "," "]];
+     var ini = 0;
+     var won = false;
+     //functions
+     //switch function
+     function turns(){
+       if(turn == "X"){
+         turn = "O";
+         document.getElementById('info').innerHTML = "Player O turn";
+       }else{
+         turn = "X"
+         document.getElementById('info').innerHTML = "Player X turn";
+       }
+     }
+     function reset(){
+       ini = 0;
+       grid = [[" "," "," "],[" "," "," "],[" "," "," "]];
+       ctx.clearRect(0, 0, canvas.width, canvas.height);
+       ctx.beginPath();
+       ctx.lineWidth = 10;
+       ctx.strokeStyle = 'white';
+       ctx.moveTo(200,0);
+       ctx.lineTo(200,600);
+       ctx.stroke();
+       ctx.moveTo(400,0);
+       ctx.lineTo(400,600);
+       ctx.moveTo(0,200);
+       ctx.lineTo(600,200);
+       ctx.moveTo(0,400);
+       ctx.lineTo(600,400);
+       ctx.stroke();
+       turn = "X";
+       won = false;
+       tie=false;
+       document.getElementById('info').innerHTML = "Player X turn";
+       console.log(grid);
+     }
+     function winning(){
+       for(c = 0; c < 3;c++){
+         if(grid[c][0] == "X" && grid[c][1] == "X" && grid[c][2] == "X"){
+             ini = c+1;
+             document.getElementById('info').innerHTML = "Player X wins";
+             return true;
+           }
+         if(grid[c][0] == "O" && grid[c][1] == "O" && grid[c][2] == "O"){
+             ini = c+1;
+             document.getElementById('info').innerHTML = "Player O wins";
+             return true;
+           }
+         }
+         for(d = 0; d < 3;d++){
+           if(grid[0][d] == "X" && grid[1][d] == "X" && grid[2][d] == "X"){
+               ini = d+4;
+               document.getElementById('info').innerHTML = "Player X wins";
+               return true;
+             }
+           if(grid[0][d] == "O" && grid[1][d] == "O" && grid[2][d] == "O"){
+               ini = d+4;
+               document.getElementById('info').innerHTML = "Player O wins";
+               return true;
+             }
+           }
+         //Diagonal 1
+         if(grid[0][0]=="X" && grid[1][1]=="X" && grid[2][2]=="X" ){
+           ini = 7;
+           document.getElementById('info').innerHTML = "Player X wins";
+           return true;
+         }
+         if(grid[0][0]=="O" && grid[1][1]=="O" && grid[2][2]=="O" ){
+           ini = 7;
+           document.getElementById('info').innerHTML = "Player O wins";
+           return true;
+         }
+         //Diagonal 2
+         if(grid[0][2]=="X" && grid[1][1]=="X" && grid[2][0]=="X" ){
+           ini = 8;
+           document.getElementById('info').innerHTML = "Player X wins";
+           return true;
+         }
+         if(grid[0][2]=="O" && grid[1][1]=="O" && grid[2][0]=="O" ){
+           ini = 8;
+           document.getElementById('info').innerHTML = "Player O wins";
+           return true;
+         }
+       }
+     //grid
+     ctx.beginPath();
+     ctx.lineWidth = 10;
+     ctx.strokeStyle = 'white';
+     ctx.moveTo(200,0);
+     ctx.lineTo(200,600);
+     ctx.stroke();
+     ctx.moveTo(400,0);
+     ctx.lineTo(400,600);
+     ctx.moveTo(0,200);
+     ctx.lineTo(600,200);
+     ctx.moveTo(0,400);
+     ctx.lineTo(600,400);
+     ctx.stroke();
+     canvas.addEventListener('click',function(evt){
+       if(won == false){
+         var rect = canvas.getBoundingClientRect();
+         var x = evt.clientX - rect.left;
+         var y = evt.clientY - rect.top;
+         if(x != 0){
+           if(y != 0){
+             var t = Math.floor(x/200);
+             var a = Math.floor(y/200);
+             if(grid[t][a] == " "){
+               grid[t][a] = turn;
+               if(winning() == true){
+                won = true;
+              }else{
+                turns();
+              }
+            }
+           }
+         }
+         for(i = 0; i < 3; i++){
+           for(a = 0; a < 3; a++){
+             ctx.font = "100px Arial";
+             ctx.fillStyle = "green";
+             ctx.fillText(grid[i][a],i * 200 + 53, a * 200 + 133);
+           }
+         }
+         if(ini == 1){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(90,50);
+           ctx.lineTo(90,550);
+           ctx.stroke();
+         }
+         if(ini == 2){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(290,50);
+           ctx.lineTo(290,550);
+           ctx.stroke();
+         }
+         if(ini == 3){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(490,50);
+           ctx.lineTo(490,550);
+           ctx.stroke();
+         }
+         if(ini == 4){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(50,90);
+           ctx.lineTo(550,90);
+           ctx.stroke();
+         }
+         if(ini == 5){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(50,290);
+           ctx.lineTo(550,290);
+           ctx.stroke();
+         }
+         if(ini == 6){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(50,490);
+           ctx.lineTo(550,490);
+           ctx.stroke();
+         }
+         if(ini == 7){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(50,50);
+           ctx.lineTo(540,540);
+           ctx.stroke();
+         }
+         if(ini == 8){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(540,50);
+           ctx.lineTo(50,540);
+           ctx.stroke();
+         }
+         if(winning() == true){
+           ctx.globalAlpha = 0.4;
+           ctx.fillStyle = "grey";
+           ctx.fillRect(0,0,600,600);
+           ctx.globalAlpha = 1;
+           ctx.fillStyle = "red";
+           ctx.font = "95px Arial"
+           ctx.fillText("Player "+turn+" wins",7,300);
+         }
+       }
+
+     });
+
+   </script>
+ </body>
+</html>

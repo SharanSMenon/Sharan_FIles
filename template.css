@@ -1,0 +1,165 @@
+w.container{
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+body{
+  padding:0;
+}
+.container:after {
+  content: "";
+  display: block;
+}
+footer,.container:after {
+  /* .push must be the same height as footer */
+    height: 142px;
+}
+header{
+  background-color:red;
+  color:white;
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  display: block;
+  padding:12px;
+  text-align: center;
+}
+.navig{
+  position:fixed;
+  background-color:rgba(0, 0, 0, 0.7);
+  height:100%;
+  top:0;
+  left:0;
+  width:0;
+  transition:0.5s;
+  padding-top:10%;
+  overflow: hidden;
+  color:white;
+  text-align:center;
+}
+.closeN{
+  font-size:60px;
+  position:absolute;
+  right:0;
+  top:0;
+  width:80px;
+  height:80px;
+}
+button{
+  padding:5px;
+  border:none;
+  background-color:red;
+  color:white;
+  outline:none;
+}
+button:hover{
+  cursor:pointer;
+  background-color:darkred;
+}
+.closeN:hover{
+  background-color:#eee;
+  color:black;
+  cursor:pointer;
+}
+footer {
+  background:red;
+  color:white;
+  margin-left:-8px;
+  position:relative;
+  bottom:-8px;
+  margin-right:-8px;
+  padding: 12px;
+}
+.menu{
+  width:50px;
+  height:50px;
+  position:absolute;
+  top:0;
+  left:0;
+  font-size:35px;
+  cursor:pointer;
+}
+.menu:hover{
+  background-color:#eee;
+  color:black;
+}
+.tabs{
+  height:50px;
+  background-color:red;
+}
+.tabs button{
+  height:100%;
+  margin-right:0px;
+  width:70px;
+  border:none;
+  cursor:pointer;
+  background-color: inherit;
+  color:white;
+  float:left;
+  outline:none;
+}
+.tabs button.active {
+    background-color:darkred;
+    color:white;
+}
+@keyframes slideIn {
+  from{
+    top:-300px;
+  }
+  to{
+    top:80px;
+  }
+}
+.half{
+  width:100%;
+  float:left;
+  display: table;
+  border:1px solid black;
+  margin-bottom:20px;
+  padding-left:5px;
+}
+.third{
+  width:100%;
+  float:left;
+  display: table;
+  border:1px solid black;
+  margin-bottom:20px;
+  padding-left:5px;
+}
+* {
+    box-sizing: border-box;
+}
+.quarter{
+  width:100%;
+  float:left;
+  display: table;
+  border:1px solid black;
+  margin-bottom:20px;
+  padding-left:5px;
+}
+@media (min-width:701px) {
+  .half{
+    width:49.85%;
+  }
+  .third{
+    width:33.18%;
+  }
+  .quarter{
+    width:24.9999%;
+  }
+}
+.tabcontent{
+  padding:6px 12px;
+  height:150px;
+  overflow: auto;
+  display:none;
+  border-left:1px solid black;
+  border-bottom:1px solid black;
+  border-right:1px solid black;
+}
+.tabs button:hover{
+  color:black;
+  background-color:#eee;
+  cursor:pointer;
+}

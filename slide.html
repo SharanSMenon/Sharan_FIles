@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+  <title>Slide</title>
+  <style media="screen">
+  .mySlides {display:none}
+
+  /* Slideshow container */
+  .slideshow-container {
+    max-width: 600px;
+    position: relative;
+    margin: auto;
+  }
+
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  /* Caption text */
+  .text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor:pointer;
+    height: 13px;
+    width: 13px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container" id="carosel">
+
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 6</div>
+    <img src="C:\Users\sharan\Pictures\Screenshots\Screenshot (18).png" style="width:100%">
+    <p class="text" style="margin-left:180px;margin-bottom:250px;">Weight:8 Tons <br>Length:40 ft (12 Meters)<br>Time:65 million years ago<br></p>
+    <div class="text"><h3>Tyrannosaurus Rex</h3></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 6</div>
+    <img src="C:\Users\sharan\Pictures\Screenshots\Carcharodontosaurus..png" style="width:100%">
+    <p class="text" style="margin-left:180px;margin-bottom:250px;">Weight:8 Tons <br>Length:42 ft (13 Meters)<br>Time:100 million years ago</p>
+    <div class="text"><h3 style="color:black;">Carcharodontosaurus</h3></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext" style="color:black;background-color:#eee;">3 / 6</div>
+    <img src="C:\Users\sharan\Pictures\Screenshots\spinosaurus-side.ngsversion.1460134850811.jpg" style="width:100%">
+    <p class="text" style="margin-left:-200px;margin-bottom:30px;color:black;">Weight:10 Tons <br>Length:55 ft (16 Meters)<br>Time:100 million years ago</p>
+    <div class="text"><h3 >Spinosaurus<h3></div>
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext"style="color:black;">4 / 6</div>
+    <img src="C:\Users\sharan\Pictures\Screenshots\Screenshot (14).png" style="width:100%">
+    <p class="text" style="margin-left:30px;margin-bottom:200px;">Weight:28 Tons <br>Length:82 ft (25 Meters)<br>Time:150 million years ago</p>
+    <div class="text"><h3>Brachiosaurus</h3></div>
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">5 / 6</div>
+    <img src="C:\Users\sharan\Pictures\Screenshots\Screenshot (12).png" style="width:100%">
+    <p class="text" style="margin-left:180px;margin-bottom:250px;">Weight:16 Tons <br>Length:90 ft (27 Meters)<br>Time:150 million years ago</p>
+    <div class="text"><h3>Diplodocus</h3></div>
+  </div>
+  <div class="mySlides fade">
+    <div class="numbertext">6 / 6</div>
+    <img src="C:\Users\sharan\Pictures\Screenshots\Screenshot (16).png" style="width:100%">
+    <p class="text" style="margin-left:180px;margin-bottom:250px;">Weight:1 Ton <br>Length:12 ft (4 Meters)<br>Time:20 million years ago</p>
+    <div class="text"><h3>Hyenadon</h3></div>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
+  </div>
+  <br>
+
+
+  <script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+  </script>
+  <select>
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="opel">Opel</option>
+<option value="audi">Audi</option>
+</select>
+</body>
+</html>

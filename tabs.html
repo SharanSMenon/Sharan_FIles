@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dinosaurs</title>
+    <style media="screen">
+    div.tab {
+        overflow:auto;
+        border: 1px solid #ccc;
+        width:624px;
+    }
+    /* Style the buttons inside the tab */
+    div.tab button {
+        background-color: inherit;
+        float: left;
+        border:none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        font-family:"Comic Sans MS", cursive, sans-serif;
+        transition:0.1s;
+    }
+
+    /* Change background color of buttons on hover */
+    .red{
+      background-color:#d60202;
+      color:white;
+    }
+    .green{
+      background-color:#32db6a;
+    }
+    .green button:hover{
+      background-color: #10bc3b;
+    }
+    .red button:hover{
+      background-color:#f74545;
+    }
+    .green button.active{
+      background-color: #1ecc5b;
+      color:white;
+    }
+    .red button.active{
+      background-color:#fc2a2a;
+      color:white;
+    }
+    /* Create an active/current tablink class */
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        width:600px;
+        height:250px;
+        overflow:auto;
+    }
+    .leff{
+      margin-bottom:20px;
+    }
+    .closebtn:hover {
+        color: black;
+    }
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .tooltip {
+    position: relative;
+    display: inline-block;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor:pointer
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.8;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    border-radius:5px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+}
+.modal-content {
+    position: fixed;
+    top:30px;
+    background-color: #fefefe;
+    width: 600px;
+    overflow:auto;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+    margin-left:400px;
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    transition:0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    color: white;
+}
+
+.modal-body {
+  padding: 2px 16px;
+  overflow:auto;
+  height:400px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    color: white;
+}
+.myBtn{
+  border-radius:5px;
+}
+.myBtn:hover{
+  cursor:pointer;
+}
+.righ{
+  float:right;
+  width:50%;
+  height:580px;
+}
+.leff{
+  float:left;
+  width:48%;
+  height:580px;
+  margin-left: 1%;
+  border-right:1px solid black;
+}
+@-webkit-keyframes slideOut {
+  from {top: 30px; opacity: 1}
+  to {top: -300px; opacity: 0}
+}
+
+@keyframes slideOut {
+    from {top: 30px; opacity: 1}
+    to {top: -300px; opacity: 0}
+}
+@-webkit-keyframes slideIn {
+    from {top: -300px; opacity: 0}
+    to {top: 30px; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {top: -300px; opacity: 0}
+    to {top: 30px; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+body{
+  font-family:"Comic Sans MS", cursive, sans-serif;
+}
+/*Modal scrollbar*/
+.modal-body::-webkit-scrollbar {
+    width: 10px;
+    background-color:#7583;
+    cursor:pointer;
+}
+.modal-body::-webkit-scrollbar-thumb {
+    background-color:grey;
+    cursor:pointer;
+}
+.modal-body::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    cursor:crosshair;
+}
+.modal-body::-webkit-scrollbar {
+    width: 10px;
+    background-color:#7583;
+    cursor:pointer;
+}
+.modal-body::-webkit-scrollbar-thumb {
+    background-color:grey;
+    cursor:pointer;
+}
+.modal-body::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    cursor:crosshair;
+}
+.modal-body::-webkit-scrollbar-track {
+    background-color:darkgrey;
+    cursor:pointer;
+}
+.modal-body::-webkit-scrollbar-track {
+    background-color:darkgrey;
+    cursor:pointer;
+}
+/*tabcontent scrollbar*/
+.tabcontent::-webkit-scrollbar {
+    width: 10px;
+    background-color:#7583;
+    cursor:pointer;
+}
+.tabcontent::-webkit-scrollbar-thumb {
+    background-color:grey;
+    cursor:pointer;
+}
+.tabcontent::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    cursor:crosshair;
+}
+.tabcontent::-webkit-scrollbar-track {
+    background-color:darkgrey;
+    cursor:pointer;
+}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Modal of dino images -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <h2 id="dinoname">Hello!</h2>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <h3>&copy;2017 Sharan Sajiv Menon</h3>
+        </div>
+      </div>
+
+    </div>
+    <div class="leff">
+    <h1>Carnivores</h1>
+    <div class="tab red">
+      <button class="tablinks carn" onclick="openCity(event, 't1')">Tyrannosaurus</button>
+      <button class="tablinks carn" onclick="openCity(event, 't2')">Carcharodontosaurus</button>
+      <button class="tablinks carn" onclick="openCity(event, 't3')">Spinosaurus</button>
+      <button class="tablinks carn" onclick="openCity(event, 't4')">Mapusaurus</button>
+    </div>
+
+    <div id="t1" class="tabcontent red">
+      <span class="closebtn">&times;</span>
+      <h1>Tyrannosaurus rex</h1>
+      <img src="C:\Users\sharan\Pictures\Screenshots\Screenshot (18).png" alt="Tyrannosaurus rex skleton" class="myBtn" width="300px" height="150px">
+      <div id="Tre">
+      <p>The most famous dinosaur of all times. It's name means <q cite="">Tyrant lizard king</q>. Probably the only dinosaur known by it's full name. It was hailed by the New York times as the ultimate warlord of the earth and another magazine called it the royal man-eater of the jungle. They gave <em>T-Rex</em> an upright stance but as time passed, it's posture became more horizontal. It's estimated running speed is around 12 mph. If it runs faster than 12 mph, it's legs will break due to the pressure on it. After all, it is a 5 ton predator. It's length is 40 feet and it was discovered by Barnum Brown in 1912. It lived 65 million years ago in the Late Cretaceous. Research suggests that it might have had feathers. The most complete and largest specimen of <em>Tyrannosaurus</em> was nicknamed <q cite="T-rex">Sue</q>. <em>Tyrannosaurus</em> probably hunted Triceratops and some other dinos living in it's time. <em>Tyrannosaurus</em> was the dominant predator in it's area at the time. It is said to have the strongest bite in the dinosaur world. It was said to be able to eat bones as they have recently discovered <span class="tooltip">coprolites
+  <span class="tooltiptext">Fossilized poop</span>
+</span> containing bones. At least, they think it was <em>Tyrannosaurus</em> dung. If you want to know more, read this <a href="https://en.wikipedia.org/wiki/Tyrannosaurus">Wikipedia</a> article about <em>Tyrannosaurus rex.</em></p>
+<h3>Stats</h3>
+<p>Weight: 5 tons</p>
+<p>Length: 40 ft</p>
+<p>Where it's found: Western North America</p>
+<p>When it lived: 65 million years ago</p>
+</div>
+    </div>
+    <div id="t2" class="tabcontent red">
+      <span class="closebtn">&times;</span>
+      <h1>Carcharodontosaurus Saharicus</h1>
+      <img src="C:\Users\sharan\Pictures\Screenshots\Carcharodontosaurus..png" alt="Carcharodontosaurus fighting" class="myBtn" width="300px" height="150px">
+      <div id="Car">
+      <p>It's name means <q cite="">Shark toothed lizard</q>. It is a part of a family of therapods called <em>Carcharodontosaurs</em>. It has 8in curved,serrated teeth in a 1.5 meter skull and it's length was 43 feet. It was a 6 ton predator and it was probably larger than <em>T-rex</em>. It's bite was weaker and it was less intelligent. Studies have shown that <em>Tyrannosaurus's</em> <span class="tooltip">braincase <span class="tooltiptext">Where the brain is stored</span></span> is 150% bigger than <em>Carcharodontosaurus's</em>. <em>Carcharodontosarus</em> was still the killer of herbivores like <em>Ouranosaurus</em> and <em>Paralititan</em>.<em>Carcharodontosarus</em> looks like a predator with speed. It lived alongside <em>Spinosaurus</em> which is the largest predator. Scientists think that <em>Spinosaurus</em> ruled the water while <em>Carcharodontosarus</em> ruled the land. In-fighting was common among <em>Carcharodontosarus</em> as fossils show tooth marks left by other <em>Carcharodontosarus</em> for food and territory. Occasionally, fights between <em>Carcharodontosarus</em> and <em>Spinosaurus</em> would have broke out over food but the environment could support both animals. <em>Carcharodontosarus</em> lived around 90 million years ago. If you want to know more, check out this <a href="https://en.wikipedia.org/wiki/Carcharodontosaurus">Wikipedia</a>  article about <em>Carcharodontosarus</em></p>
+      <h3>Stats</h3>
+      <p>Weight: 6 tons</p>
+      <p>Length: 42 ft</p>
+      <p>Where it's found: North Africa</p>
+      <p>When it lived: 95 million years ago</p>
+    </div>
+    </div>
+    <div id="t3" class="tabcontent red">
+      <span class="closebtn">&times;</span>
+      <h1>Spinosaurus Aeygptacus</h1>
+      <img src="C:\Users\sharan\Pictures\Screenshots\spinosaurus-side.ngsversion.1460134850811.jpg" alt="Spinosaurus" class="myBtn" width="300px" height="150px">
+      <div id="Spi">
+      <p>It had 4 foot claws on arms strong enough to puncture steel. It is currently the largest <span class="tooltip">carnivorous <span class="tooltiptext">Meat-eating</span></span> dinosaur ever known reaching lengths up to 60ft and weighing in at 9 tons. It also had a sail that is about 6ft tall. It had crocodilian jaws lined with conical jaws. <em>Spinosaurus</em> is now coming to the forefront as one of the mightiest beasts of the Mesozoic era. It belongs to a family of therapods called <em>Spinosaurs</em>. It is most likely a <span class="tooltip">piscivorous <span class="tooltiptext">Fish-eating</span></span> as studies have shown that it spends more time in water. How could a beast that big support it self on fish? The fish living that live in the area that <em>Spinosaurus</em> lives are giants. Take the 8m long <em>Onchopristis</em>. It is a giant swordfish and the predator prey relationship between <em>Spinosaurus</em> and <em>Onchopristis</em> is confirmed because there is <em>Onchopristis </em> needles in <em>Spinosaurus</em> skulls and <em>Spinosaurus</em> teeth in <em>Onchopristis</em> bodies. <em>Spinosaurus</em> lived alongside <em>Carcharodontosarus</em>. <em>Carcharodontosarus</em> had more powerful jaws but it was smaller so both animals were mathched up even in a fight. <em>Spinosaurus</em> lived around 90 million ago. If you want to know more, check out this <a href="https://en.wikipedia.org/wiki/Spinosaurus">Wikipedia</a> article about <em>Spinosaurus</em>.</p>
+      <h3>Stats</h3>
+      <p>Weight: 9 tons</p>
+      <p>Length: 55 ft</p>
+      <p>Where it's found: North Africa</p>
+      <p>When it lived: 95 million years ago</p>
+    </div>
+    </div>
+    <div id="t4" class="tabcontent red">
+      <span class="closebtn">&times;</span>
+      <h1>Mapusaurus Roseae</h1>
+      <img src="C:\Users\sharan\Pictures\Screenshots\Mapusaurus_2.png" alt="Mapusaurus" class="myBtn" width="300px" height="150px">
+      <div id="Map">
+      <p><em>Mapusaurus</em>, a predator also larger than <em>Tyrannosaurus</em>. It belongs in a family of dinosaurs called <em>Carcharodontosaurs</em>. It lived in South America. It is a 5 ton predator around 42 feet long. <em>Mapusaurus</em> hunted the largest land animal of all times: <em>Argentinosaurus</em>. It hunted in packs. A fossil find showed 7 different <em>Mapusaurus skletons</em> jumbled in a mess on a hillside. They all died at the same time. This find proves (Hopefully) that <em>Mapusaurus</em> hunted in packs. Anyways, one <em>Mapusaurus</em> alone could not take on a 90 ton <em>Argentinosaurus</em>. It lived alongside <em>Giganotosaurus</em>. So there would have been fights. Dinosaurs like <em>Mapusaurus</em>, <em>Carcharodontosarus</em>, <em>Argentinosaurus</em>, <em>Spinosaurus</em>, <em>Paralititan</em> and <em>Giganotosaurus</em> represented the <span class="tooltip">apex <span class="tooltiptext">Peak</span></span> of dinosaur development. After that point, things began to diminish in scale. Mapusaurus lived around 90 million years ago. If you want to know more, check out this <a href="https://en.wikipedia.org/wiki/mapusaurus">Wikipedia</a> article about <em>Mapusaurus</em>.</p>
+      <h3>Stats</h3>
+      <p>Weight: 5 tons</p>
+      <p>Length: 40 ft</p>
+      <p>Where it's found: Argentina</p>
+      <p>When it lived: 90 million years ago</p>
+    </div>
+  </div>
+</div>
+  <div class="righ">
+    <h1>Herbivores</h1>
+    <div class="tab green">
+      <button class="tablinks herb" onclick="opentab(event, 'tg1')">Diplodocus</button>
+      <button class="tablinks herb" onclick="opentab(event, 'tg2')">Brachiosaurus</button>
+      <button class="tablinks herb" onclick="opentab(event, 'tg3')">Stegosaurus</button>
+      <button class="tablinks herb" onclick="opentab(event, 'tg4')">Triceratops</button>
+
+    </div>
+
+    <div id="tg1" class="tabcontent green">
+      <span class="closebtn">&times;</span>
+      <h1>Diplodocus longus</h1>
+      <img src="C:\Users\sharan\Pictures\Screenshots\Screenshot (12).png" alt="Diplodocus" class="myBtn" width="300px" height="150px">
+      <div id="Dip">
+      <p><em>Diplodocus</em>, A 19 ton giant that is 90 ft or longer. It can reach lengths up to 120 ft and reach weights up to 25 tons. It's name meant <q cite="">Double-beamed</q>. The 83 ft long replica that sits in <a href="http://www.nhm.ac.uk/">London's Natural History Museum</a> was given by King Edward VII in 1905. The first <em>Diplodocus</em> skleton was found by Benjamin Mudge and Samuel Wendell Williston in 1877. <em>Diplodocus</em> belongs to a group of sauropods called <em>Diplodocids</em>. The group includes <em>Apatosaurus</em> and other dinosaurs. A fossilized skin impression showed that it's back carried a row of <span class="tooltip">spines <span class="tooltiptext">A row of needles</span></span> probably to cope with the stresses of mating. <em>Diplodocus</em> was slender compared to dinosaurs like <em>Apatosaurus</em> and <em>Brachiosaurus</em> but it would still have posed to be a challenge to predators such as <em>Allosaurus</em>. This giant lived around 150 million years ago in the Late Jurassic. If you want to know more, check out this <a href="https://en.wikipedia.org/wiki/diplodocus">Wikipedia</a> article about <em>Diplodocus</em>.</p>
+      <h3>Stats</h3>
+      <p>Weight: 18 tons</p>
+      <p>Length: 95 ft</p>
+      <p>Where it's found: Colorado</p>
+      <p>When it lived: 150 million years ago</p>
+    </div>
+    </div>
+    <div id="tg2" class="tabcontent green">
+      <span class="closebtn">&times;</span>
+      <h1>Brachiosaurus Alithorax</h1>
+      <img src="C:\Users\sharan\Pictures\Screenshots\Screenshot (14).png" alt="Brachiosaurus" class="myBtn" width="300px" height="150px">
+      <div id="Bra">
+      <p><em>Brachiosaurus</em>, A 40 ton giant that can reach lengths up to 85 feet and heights of up to 40 ft. Brachiosaurus belongs to a group of sauropods called <em>Brachiosaurs</em>. It is estimated that <em>Brachiosaurus</em> eats up to 260 pounds in cycads, conifers, and gingko leaves everyday. Flowers haven't evolved yet. They will evolve later in the Cretaceous period. <em>Brachiosaurus</em> lived alongside <em>Diplodocus</em> and <em>Apatosaurus</em>. <em>Brachiosaurus</em> could not gain height by rearing up on it's hind legs because it's <span class="tooltip">centre of gravity <span class="tooltiptext">Center of mass</span></span> was too fat forward and their limbs to weak to withstand the force of it's great bulk crashing on the ground. <em>Brachiosaurus</em> lived around 150 million years ago. If you want to know more, check out this <a href="https://en.wikipedia.org/wiki/Brachiosaurus">Wikipedia</a> article about <em>Brachiosaurus</em>.</p>
+      <h3>Stats</h3>
+      <p>Weight: 40 tons</p>
+      <p>Length: 80 ft</p>
+      <p>Where it's found: Colorado, USA</p>
+      <p>When it lived: 150 million years ago</p>
+    </div>
+    </div>
+    <div id="tg3" class="tabcontent green">
+      <span class="closebtn">&times;</span>
+      <h1>Stegosaurus Armatus</h1>
+      <img src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX2582330.jpg" class="myBtn"alt="Stegosaurus"  width="300px" height="150px">
+      <div id="Ste">
+        <p><em>Stegosaurus</em>, an 4 ton beast that is around 30 feet long. It carries a row of plates on it's back and a <span class="tooltip">Thagomizer <span class="tooltiptext">Spikes on tail</span></span> with 4 spikes. <em>Stegosaurus</em> had a very small brain in proportion to it's bosy size which suggests that it was the brighest of dinosaurs. It belongs to a group of <span class="tooltip">Ornithischians <span class="tooltiptext">One of the 2 dinosaur families</span></span> called <em>Stegosaurs</em>. The Thagomizers were probably used for defense against predators like <em>Allosaurus</em>. The plates on it's back would have probably been there for sexual display. It's name means <q cite="">Roofed lizard</q>. They thought that it was some sort of giant turtle at first but it turned out to be the <em>Stegosaurus</em> that we know today. If you want to know more, check out this <a href="https://en.wikipedia.org/wiki/Stegosaurus">Wikipedia</a> article about <em>Stegosaurus</em>.</p>
+        <h3>Stats</h3>
+        <p>Weight: 4 tons</p>
+        <p>Length: 30 ft</p>
+        <p>Where it's found: USA, Portugal</p>
+        <p>When it lived: 150 million years ago</p>
+      </div>
+    </div>
+    <div id="tg4" class="tabcontent green">
+      <span class="closebtn">&times;</span>
+      <h1>Triceratops Horridus</h1>
+      <img src="https://images-na.ssl-images-amazon.com/images/I/81HYJUy5qIL._SX355_.jpg" alt="Triceratops" class="myBtn" width="300px" height="150px">
+      <div id="Tri">
+        <p><em>Triceratops</em>, a 10 ton beast that is also 30 feet long. It has 2 long horns coming up from it's frills and a small nose horn. It belongs to a group of Ornithisician dinosaurs called <em>Ceratopsians</em>. <em>Triceratops</em> had a large frill that is common in <em>Ceratopsians</em>. Those horns come in handy when defending it self from <em>Tyrannosaurus</em>. It could have used it's horns to gore the attacker. It's frills would have been in use for sexual display. Triceratops was discovered by John Bell Hatcher in 1888. It was named <em>Triceratops</em> the next year by Othniel Charles Marsh. Fossilized skin impressions show that it might have sprouted bristles. There is no evidence that <em>Triceratops</em> herded as the largest groupings were found in groups of 3. If you want to know more, check out this <a href="https://en.wikipedia.org/wiki/triceratops">Wikipedia</a> article about <em>Triceratops</em>.</p>
+        <h3>Stats</h3>
+        <p>Weight: 10 tons</p>
+        <p>Length: 30 ft</p>
+        <p>Where it's found: Western Usa</p>
+        <p>When it lived: 65 million years ago</p>
+      </div>
+    </div>
+  </div>
+    <script>
+    $(".closebtn").click(function(){
+      var div = this.parentElement;
+      console.log("gg");
+      div.style.display = "none";
+      var tabnut;
+      tabnut = document.getElementsByClassName("tablinks");
+      for (j = 0; j < tabnut.length; j++) {
+          tabnut[j].className = tabnut[j].className.replace(" active", "");
+      }
+    });
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent red");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks carn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    function opentab(evt, cityName) {
+        var i2, tabcontent2, tablinks2;
+        tabcontent2 = document.getElementsByClassName("tabcontent green");
+        for (i2 = 0; i2 < tabcontent2.length; i2++) {
+            tabcontent2[i2].style.display = "none";
+        }
+        tablinks2 = document.getElementsByClassName("tablinks herb");
+        for (i2 = 0; i2 < tablinks2.length; i2++) {
+            tablinks2[i2].className = tablinks2[i2].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementsByClassName('myBtn')[0];
+    var btn2 = document.getElementsByClassName('myBtn')[1];
+    var btn3 = document.getElementsByClassName('myBtn')[2];
+    var btn4 = document.getElementsByClassName('myBtn')[3];
+    var btn5 = document.getElementsByClassName('myBtn')[4];
+    var btn6 = document.getElementsByClassName('myBtn')[5];
+    var btn7 = document.getElementsByClassName('myBtn')[6];
+    var btn8 = document.getElementsByClassName('myBtn')[7];
+    var mod_body = document.getElementsByClassName('modal-body')[0];
+    var mod_header = document.getElementsByClassName('modal-header')[0];
+    var mod_footer = document.getElementsByClassName('modal-footer')[0];
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    var dinoname = document.getElementById('dinoname');
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        console.log("gg");
+        var modalcontent = document.getElementsByClassName('modal-content')[0];
+        modalcontent.style.webkitAnimationName = "slideIn";
+        modal.style.display  ="block";
+        modalcontent.style.top = "30px";
+        var srrc = btn.src;
+        mod_header.className = "modal-header red";
+        mod_footer.className = "modal-footer red";
+        dinoname.innerHTML = "Tyrannosaurus rex"
+        mod_body.innerHTML = '<img src="'+srrc+'" width="560px height="410px">'+$("#Tre").html();
+    }
+    btn2.onclick = function() {
+        console.log("gg");
+        var modalcontent = document.getElementsByClassName('modal-content')[0];
+        modalcontent.style.webkitAnimationName = "slideIn";
+        modal.style.display  ="block";
+        modalcontent.style.top = "30px";
+        var srrc = btn2.src;
+        mod_header.className = "modal-header red";
+        mod_footer.className = "modal-footer red";
+        dinoname.innerHTML = "Carcharodontosarus Saharicus"
+        mod_body.innerHTML = '<img src="'+srrc+'" width="560px height="410px">'+$("#Car").html();
+    }
+    btn3.onclick = function() {
+        console.log("gg");
+        var modalcontent = document.getElementsByClassName('modal-content')[0];
+        modalcontent.style.webkitAnimationName = "slideIn";
+        modal.style.display  ="block";
+        modalcontent.style.top = "30px";
+        var srrc = btn3.src;
+        mod_header.className = "modal-header red";
+        mod_footer.className = "modal-footer red";
+        dinoname.innerHTML = "Spinosaurus Aeygptacus"
+        mod_body.innerHTML = '<img src="'+srrc+'" width="560px height="410px">'+$("#Spi").html();
+    }
+    btn4.onclick = function() {
+        console.log("gg");
+        var modalcontent = document.getElementsByClassName('modal-content')[0];
+        modalcontent.style.webkitAnimationName = "slideIn";
+        modal.style.display  ="block";
+        modalcontent.style.top = "30px";
+        var srrc = btn4.src;
+        mod_header.className = "modal-header red";
+        mod_footer.className = "modal-footer red";
+        dinoname.innerHTML = "Mapusaurus Roseae"
+        mod_body.innerHTML = '<img src="'+srrc+'" width="560px height="410px">'+$("#Map").html();
+    }
+    btn5.onclick = function() {
+        console.log("gg");
+        var modalcontent = document.getElementsByClassName('modal-content')[0];
+        modalcontent.style.webkitAnimationName = "slideIn";
+        modal.style.display  ="block";
+        modalcontent.style.top = "30px";
+        var srrc = btn5.src;
+        mod_header.className = "modal-header green";
+        mod_footer.className = "modal-footer green";
+        dinoname.innerHTML = "Diplodocus Longus"
+        mod_body.innerHTML = '<img src="'+srrc+'" width="560px height="410px">'+$("#Dip").html();
+    }
+    btn6.onclick = function() {
+        console.log("gg");
+        var modalcontent = document.getElementsByClassName('modal-content')[0];
+        modalcontent.style.webkitAnimationName = "slideIn";
+        modal.style.display  ="block";
+        modalcontent.style.top = "30px";
+        var srrc = btn6.src;
+        mod_header.className = "modal-header green";
+        mod_footer.className = "modal-footer green";
+        dinoname.innerHTML = "Brachiosaurus Alithorax"
+        mod_body.innerHTML = '<img src="'+srrc+'" width="560px height="410px">'+$("#Bra").html();
+    }
+    btn7.onclick = function() {
+        console.log("gg");
+        var modalcontent = document.getElementsByClassName('modal-content')[0];
+        modalcontent.style.webkitAnimationName = "slideIn";
+        modal.style.display  ="block";
+        modalcontent.style.top = "30px";
+        var srrc = btn7.src;
+        mod_header.className = "modal-header green";
+        mod_footer.className = "modal-footer green";
+        dinoname.innerHTML = "Stegosaurus Armatus"
+        mod_body.innerHTML = '<img src="'+srrc+'" width="560px height="350px">'+$("#Ste").html();
+    }
+    btn8.onclick = function() {
+        console.log("gg");
+        var modalcontent = document.getElementsByClassName('modal-content')[0];
+        modalcontent.style.webkitAnimationName = "slideIn";
+        modal.style.display  ="block";
+        modalcontent.style.top = "30px";
+        var srrc = btn8.src;
+        mod_header.className = "modal-header green";
+        mod_footer.className = "modal-footer green";
+        dinoname.innerHTML = "Triceratops Horridus"
+        mod_body.innerHTML = '<img src="'+srrc+'" width="560px height="410px">'+$("#Tri").html()
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      var modalcontent = document.getElementsByClassName('modal-content')[0];
+      modalcontent.style.webkitAnimationName = "slideOut";
+      setTimeout(function(){
+        modal.style.display  ="none";
+      },250)
+      modal.style.display  ="block";
+      modalcontent.style.top = "-450px";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if(event.target == modal){
+        var modalcontent = document.getElementsByClassName('modal-content')[0];
+        modalcontent.style.webkitAnimationName = "slideOut";
+        setTimeout(function(){
+          modal.style.display  ="none";
+        },250)
+        modal.style.display  ="block";
+        modalcontent.style.top = "-450px";
+      }
+    }
+    </script>
+  </body>
+</html>

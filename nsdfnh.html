@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title></title>
+</head>
+<body>
+  <canvas id="canvas" width="430" height="150" style="margin-left:500px;margin-top:200px;"></canvas>
+  <script type="text/javascript">
+    var canvas  = document.getElementById('canvas');
+    var c = canvas.getContext('2d');
+    var sharan = {
+      age:11,
+      likes:["Programming","Being Awesome"],
+      birthplace:"India",
+      current_place: {
+        city:"Ellicott City",
+        state:"Maryland",
+        country:"USA",
+      }
+    }
+    var Anim = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+    var length = 0;
+    var number = 1;
+    var length2 = 0;
+    var number2 = -1;
+    document.write("hi");
+    function draw(){
+      c.clearRect(0,0,canvas.width,canvas.height);
+      if(length == 210){
+        number = -1;
+      }
+      if(length == 0){
+        number = 1;
+      }
+      if(length2 == -210){
+        number2 = 1;
+      }
+      if(length2 == 0){
+        number2= -1;
+      }
+      length +=number;
+      length2 +=number2;
+      c.fillStyle = "Red";
+      c.fillRect(210,0,length,100);
+      c.fillRect(210,0,length2,100);
+      c.font = "16px lucida calligraphy";
+      c.fillStyle = "black";
+      c.fillText("Sharan's age is "+sharan.age,10,20);
+      c.fillText("Sharan likes "+sharan.likes[0]+" and "+sharan.likes[1],10,40);
+      c.fillText("Sharan's was born in "+sharan.birthplace,10,60);
+      c.fillText("Sharan's lives in "+ sharan.current_place.city + ", " + sharan.current_place.state+", "+sharan.current_place.country,10,80);
+      Anim(draw);
+    }
+    draw();
+  </script>
+  <canvas id="canvas" width="430" height="150" style="margin-left:500px;margin-top:50px;"></canvas>
+  <script type="text/javascript">
+    var canvas  = document.getElementById('canvas');
+    var c = canvas.getContext('2d');
+    var sajiv = {
+      age:40,
+      likes:["Programming","Batminton"],
+      birthplace:"India",
+      current_place: {
+        city:"Ellicott City",
+        state:"Maryland",
+        country:"USA",
+      }
+    }
+    var Anim = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+    var length3 = 0;
+    var number3 = 1;
+    var length4 = 0;
+    var number4 = -1;
+    document.write("hi");
+    function draw(){
+      c.clearRect(0,0,canvas.width,canvas.height);
+      if(length3 == 210){
+        number3 = -1;
+      }
+      if(length3 == 0){
+        number3 = 1;
+      }
+      if(length4 == -210){
+        number4 = 1;
+      }
+      if(length4 == 0){
+        number4= -1;
+      }
+      length +=number;
+      length2 +=number2;
+      c.fillStyle = "Red";
+      c.fillRect(210,0,length,100);
+      c.fillRect(210,0,length2,100);
+      c.font = "16px lucida calligraphy";
+      c.fillStyle = "black";
+      c.fillText("Sajiv age is "+sajiv.age,10,20);
+      c.fillText("Sajiv likes "+sajiv.likes[0]+" and "+sajiv.likes[1],10,40);
+      c.fillText("Sajiv was born in "+sajiv.birthplace,10,60);
+      c.fillText("Sajiv lives in "+ sajiv.current_place.city + ", " + sharan.current_place.state+", "+sajiv.current_place.country,10,80);
+      Anim(draw);
+    }
+    draw();
+  </script>
+  <canvas id="canvas" width="430" height="150" style="margin-left:500px;margin-top:200px;"></canvas>
+  <script type="text/javascript">
+    var canvas  = document.getElementById('canvas');
+    var c = canvas.getContext('2d');
+    var sharan = {
+      age:11,
+      likes:["Programming","Being Awesome"],
+      birthplace:"India",
+      current_place: {
+        city:"Ellicott City",
+        state:"Maryland",
+        country:"USA",
+      }
+    }
+    var Anim = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+    var length = 0;
+    var number = 1;
+    var length2 = 0;
+    var number2 = -1;
+    document.write("hi");
+    function draw(){
+      c.clearRect(0,0,canvas.width,canvas.height);
+      if(length == 210){
+        number = -1;
+      }
+      if(length == 0){
+        number = 1;
+      }
+      if(length2 == -210){
+        number2 = 1;
+      }
+      if(length2 == 0){
+        number2= -1;
+      }
+      length +=number;
+      length2 +=number2;
+      c.fillStyle = "Red";
+      c.fillRect(210,0,length,100);
+      c.fillRect(210,0,length2,100);
+      c.font = "16px lucida calligraphy";
+      c.fillStyle = "black";
+      c.fillText("Sharan's age is "+sharan.age,10,20);
+      c.fillText("Sharan likes "+sharan.likes[0]+" and "+sharan.likes[1],10,40);
+      c.fillText("Sharan's was born in "+sharan.birthplace,10,60);
+      c.fillText("Sharan's lives in "+ sharan.current_place.city + ", " + sharan.current_place.state+", "+sharan.current_place.country,10,80);
+      Anim(draw);
+    }
+    draw();
+  </script>
+  <canvas id="canvas" width="430" height="150" style="margin-left:500px;margin-top:200px;"></canvas>
+  <script type="text/javascript">
+    var canvas  = document.getElementById('canvas');
+    var c = canvas.getContext('2d');
+    var sharan = {
+      age:11,
+      likes:["Programming","Being Awesome"],
+      birthplace:"India",
+      current_place: {
+        city:"Ellicott City",
+        state:"Maryland",
+        country:"USA",
+      }
+    }
+    var Anim = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+    var length = 0;
+    var number = 1;
+    var length2 = 0;
+    var number2 = -1;
+    document.write("hi");
+    function draw(){
+      c.clearRect(0,0,canvas.width,canvas.height);
+      if(length == 210){
+        number = -1;
+      }
+      if(length == 0){
+        number = 1;
+      }
+      if(length2 == -210){
+        number2 = 1;
+      }
+      if(length2 == 0){
+        number2= -1;
+      }
+      length +=number;
+      length2 +=number2;
+      c.fillStyle = "Red";
+      c.fillRect(210,0,length,100);
+      c.fillRect(210,0,length2,100);
+      c.font = "16px lucida calligraphy";
+      c.fillStyle = "black";
+      c.fillText("Sharan's age is "+sharan.age,10,20);
+      c.fillText("Sharan likes "+sharan.likes[0]+" and "+sharan.likes[1],10,40);
+      c.fillText("Sharan's was born in "+sharan.birthplace,10,60);
+      c.fillText("Sharan's lives in "+ sharan.current_place.city + ", " + sharan.current_place.state+", "+sharan.current_place.country,10,80);
+      Anim(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>

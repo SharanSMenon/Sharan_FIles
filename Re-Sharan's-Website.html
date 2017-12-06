@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Text in green are comments.-->
+<style>
+    body {
+        background:url(http://www.planwallpaper.com/static/images/518164-backgrounds.jpg);
+        font-family:lucida calligraphy;
+		background-repeat:no-repeat;
+		background-size:cover;
+		background-attachment:fixed;
+		text-align:center;
+		 
+    }
+    h2 {
+        color:blue;
+    }
+    #toc {
+        color:black;
+    }
+    p {
+        color:red;
+    }
+    .con {
+        font-weight:bold;
+    }
+	img {
+		border:double;
+		}
+	#stay{
+		background-color:white;
+		align:center;
+		position:fixed;
+		width:1360px;
+		top:0;
+		height:70px;
+		left:0;
+		border-bottom:3px black solid;
+	}
+	
+	div { text-align: center; }
+	ul { display: inline-block; text-align: left; }
+	ol { display: inline-block; text-align: left; }
+	#devd {
+		border:ridge;
+	}
+	a:visited{
+		color:green;
+	}
+	a:hover{
+		background-color:grey;
+	}
+	
+</style>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Sharan's Website</title>
+    </head>
+    <body>
+		 <a name="top"/>
+		 <div id="stay">
+         <h1>Sharan's Website</h1>
+		 </div>
+		 <script>
+		 	alert("Welcome to Sharan's website");
+		 </script>
+		 <!--"<br/></br>" is a line break-->
+		 <br/><br/>
+         <h2 id="toc"><u>Table of contents</u></h2>
+		 <div>
+        <ol>
+             <li class="con"><a href="#mtsh"> Meet Sharan</a></li>
+             <li class="con"><a href="#sinter"> Sharan's Interests</a></li>
+             <li class="con"><a href="#sgd"> Some Good Links</a></li>
+			 <li class="con"><a href="#Poga">Photo gallery</a></li>
+			 <li class="con"><a href="#Jagg">About jaguars</a></li>
+			 <li class="con"><a href="#jahn">Jahnvi's webpage</a></li>
+			 <li class="con"><a href="#blo"> Sharan's Blog</a></li>
+			 <li class="con"><a href="#Org">Origami</a></li>
+			 <li class="con"><a href="#math">Try some math problems</a></li>
+			 <li class="con"><a href="#ad1">Introducing... The Sharan Maker</a></li>
+			 <li class="con"><a href="#family">My Family</a></li>
+			 <li class="con"><a href="#relmus">Listen to some relaxing music</a></li>
+			 <li class="con"><a href="#guess1">Guessing game</a></li>
+			 <li class="con"><a href="#guess2">Guessing game reversed</a></li>
+			 <li class="con"><a href="#fc">Fahrenheit and celsius converters</a></li>
+			 
+         </ol>
+		 
+		
+         </div>
+		 
+         <h2 id="mtsh"><u>Meet Sharan</u></h2>
+             
+         <p>Hi, My name is Sharan and I am 11 years old<br>
+         This website was made because I like computer programming.<br>
+		 Batman is the best superhero of all times.<br>
+		 Look at the <em>whole</em> webpage.<br>
+		 Note: Never say <strong><strike>Me and somebodywent to the mall</strike></strong>, say <em><strong>Somebody and I went to the mall</strong></em>.<br>
+		 You wouldn't say, <em> me went to the mall.</em> Would you say that? If you said yes, you are probably stupid.<br>
+		 If you said no, good for you.<br>Do you want to know where I live?</p>
+		 <button id="trick1">Click to find out</button>
+		 <p id="trick1_text"></p>
+		 <script>
+		 //This is a comment in Javascript
+		 //I got JS by adding the "<script>Javascript code goes here
+		 document.getElementById("trick1").onclick = function(){
+			document.getElementById("trick1_text").innerHTML = "Did you really think I would show my location?";
+		 }	 
+		 </script>
+		 <!--this Picture leads into an interactive periodic table-->
+             
+         </p>
+        <a href="http://www.ptable.com"> <img src="https://upload.wikimedia.org/wikipedia/en/archive/3/34/20090928200859!Periodic_table_by_article_value.PNG" width="270" height="160"></a>
+		<hr>
+        <h2 id="sinter"><u>Sharan's Interests</u></h2>
+        <h3>Type a number from 0 to 9 to see Sharan's 10 favorite activities</h3>
+		<input id="Choose" type="text" placeholder="Type a number" width=30px/><button id="Submit">Submit</button>
+		<div id="pertext"></div>
+		<script>
+		var fav_activities = new Array();
+		fav_activities[0]="Computer Programming";
+		fav_activities[1]="Playing outside";
+		fav_activities[2]="Running";
+		fav_activities[3]="Chemistry";
+		fav_activities[4]="Electronics";
+		fav_activities[5]="Biology";
+		fav_activities[6]="Watching YouTube";
+		fav_activities[7]="Being Awesome";
+		fav_activities[8]="Day Dreaming";
+		fav_activities[9]="Soccer";
+		console.log(fav_activities);
+		console.log("Hello");
+		var fav = document.getElementById("Choose").value;
+		document.getElementById("Submit").onclick=function(){
+			fav = document.getElementById("Choose").value;
+			document.getElementById("pertext").innerHTML = fav_activities[fav];
+		}
+		</script>
+            <h2 id="sgd"><u>Some good links</u></h2>
+			</div>
+            <ul>
+                <li><a href="http://www.google.com" target=_blank>Google (search engine and some other features)</a></li>
+                <li><a href="http://diep.io" target=_blank>Diep.io (games)</a></li>
+                <li><a href="http://www.friv.com" target=_blank>friv (games)</a></li>
+                <li><a href="http://www.youtube.com" target=_blank>Youtube (videos)</a></li>
+                <li><a href="http://slither.io" target=_blank>Slither.io (games)</a></li>
+            </ul>
+            </div>
+			<hr>
+			<h2 id="Poga"><u>Photo gallery</u></h2>
+			<a href="file:///C:/sharan/Sharan's%20website_files/photo-gallery.html">Click to see a cool photo gallery.</a>
+			
+			<h2 id="Jagg"><u>About Jaguars</u></h2>
+			
+			<h4>Jaguars are my favorite animals so i wanted to have<br>
+			article about them</h4>
+			
+			<p>Click the image</p>
+			
+			<a href="https://en.wikipedia.org/wiki/Jaguar"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Standing_jaguar.jpg" width="200" height="200"></a>
+			
+			<hr>	
+             
+			<h2 id="jahn"><u>Jahnvi's webpage</u></h2>
+
+			<a href="file:///C:/sharan/Sharan's%20website_files/Jahnvi-page.html">Click to go to jahnvi's webpage</a>
+
+			<hr>
+			<h2 id="blo"> Sharan's Blog</h2>
+			
+			<a href="file:///C:/sharan/Sharan's%20website_files/Sharan-blog.html">Click to go to Sharan's blog</a>
+			<p>In this blog, I will write about most stuff I do<br>
+			and most of them are fun stuff so yeah.</p>
+			<hr>
+			<h2 id="Org"><u>Origami</u></h2>
+			
+			<p> I have some cool origami projects I made myself.</p>
+			
+			<a href="file:///C:/sharan/Sharan's%20website_files/origami.html">Click to got the page where my origami projects are.</a>
+			<hr>
+			<h2 id="math"><u>Try some math problems</u></h2>
+			<p>* = multiplication, / = division, ^ = to the power of.</p>
+			
+			<ol>
+				<li>3^3</li>
+				<li>12*9</li>
+				<li>45/9</li>
+				<li>625/5</li>
+				<li>10^6</li>
+				<li>6*12</li>
+				<li>7*8</li>
+				<li>9^3</li>
+				<li>8^5*2</li>
+				<li>65,536/2</li>
+			</ol>
+			<p>How do you think you did?</p>
+			
+			
+			
+			<a href = "file:///C:/sharan/Sharan's%20website_files/Answersmath1.html">Click this link to see the answers</a>
+			<hr>
+			<h2 id="ad1"><u>Introducing... The Sharan Maker!</u></h2>
+			<iframe src="file:///C:/sharan/Sharan's%20website_files/Awesome_sharan.html" width="640" height="505"></iframe>
+			<hr>
+			<h2 id="family"><u>My family</u></h2>
+			<!--This is a table of my family-->
+			<table align=center border="10" text-align=center>
+				<tr><th>Name</th><th>Age</th><th>Gender</th><th>Awesomeness</th></tr>
+				<tr><td>Sharan</td><td>11</td><td>Male</td><td>10</td></tr>
+				<tr><td>Jahnvi</td><td>7</td><td>Female</td><td>7.9</td></tr>
+				<tr><td>Sajiv</td><td>40</td><td>Male</td><td>8.7</td></tr>
+				<tr><td>Anu</td><td>36</td><td>Female</td><td>9.5</td></tr>
+			</table>
+			<p>Note: On the awesomeness scale, 1 is the worst and 10 is the best.</p>
+			<hr>
+			<h2 id="relmus"><u>Listen to some relaxing music</u></h2>
+			<iframe width="100" height="100" src="https://www.youtube.com/embed/DJUIgV7t8C0" frameborder="0" allowfullscreen></iframe>
+			<br/><br/>
+			<p>This music is said to be relaxing.<br>
+			Don't blame me if this is not relaxing.</p>
+			<hr>
+			<h2 id="guess1"><u>Guessing game</u></h2>
+			<h3>Description</h3>
+			<p>This is a classical guessing game. The computer generates a random number and<br>
+			You have to guess it.</p>
+			<p><em>Challenge: Try getting it <strong>under</strong> 5 guesses.</em></p>
+			<h3>Program</h3>
+			<p>Enter a number between 1 and 100:</p>
+			<input id="user_input" />
+			<button id="submit">Guess</button>
+			<p>Reload page to generate new number</p>
+			<script>
+				var x = Math.random();
+				var guesses = 0;
+				x = 101*x;
+				x= Math.floor(x);
+				console.log("Guessing game number: "+x);
+				document.getElementById("submit").onclick=function(){
+					if (document.getElementById("user_input").value == x) {
+						guesses++;
+						alert("You got it. It took you "+guesses+" guesses");
+						console.log("You got it. It took you "+guesses+" guesses");
+					}else{
+							alert("Wrong.");
+							guesses++;
+							console.log("Wrong number. Player has taken "+guesses+" guesses");
+							if(document.getElementById("user_input").value > x){
+								alert("Try a smaller number")
+							}else{
+								alert("Try a larger number")
+								}
+							}
+						}
+			</script>
+			<hr>
+			<h2 id="guess2"><u>Guessing game reversed</u></h2>
+			<h3>Description</h3>
+			<p>This is the opposite version of a guessing game.<br>
+			Here, you type in a number and the computer has to guess the number.</p>
+			<h3>Program</h3>
+			<p>Enter a number between 1 and 100:</p>	        	       
+			<input id="number" />	        	        
+			<button id="guess">Make computer guess!</button>	        	        	   
+			<script type="text/javascript">	
+				document.getElementById("guess").onclick=function() {	                	                
+					var gotit=false; var guesses=1; var x;	                	                
+					while (gotit==false) {	                    	                    
+						x=Math.random();	                    	                   
+						x=101*x;	                    	                    
+						x=Math.floor(x);	
+						console.log("Guessing game reversed number: "+x);
+						if (document.getElementById("number").value==x) {	  
+							gotit=true;	       
+							console.log("Computer guessed it in "+guesses+" tries");
+						} else {	                        	                      
+							guesses++;  
+							console.log("Computer got it wrong. It has been "+guesses+" guesses");
+						}	                    	               
+					}	                	                
+					alert("Got it! It was "+x+". It took "+guesses+" guesses!");
+				}	
+			</script>
+			<hr>
+			<h2 id="fc">Fahrenheit and Celsius converters</h2>
+			<h3>Fahrenheit to Celsius</h3>
+			<input id="fahren" />
+			<button id="Sub">Submit</button>	
+			<script>
+				document.getElementById("Sub").onclick = function(){
+					function fToC(){
+						var fahren = document.getElementById("fahren").value;
+						var celcius = 5.0 / 9.0*(fahren-32);
+						celcius = Math.round(celcius);
+						alert(fahren+" degrees fahrenheit is "+celcius+" degrees celsius");
+					} 
+					fToC();
+				}
+			</script>
+			<h3>Celsius to Fahrenheit</h3>
+			<input id="celsius" />
+			<button id="sub">Submit</button>
+			<script>
+				document.getElementById("sub").onclick=function(){
+					function cToF(){
+						var celsius = document.getElementById("celsius").value;
+						var fahren = celsius*(9.0 / 5.0) + 32;
+						fahren = Math.round(fahren);
+						alert(celsius+" degrees celsius is "+fahren+" degrees fahrenheit.");
+						
+					}
+					cToF();
+				}
+			</script>
+			<br/></br/>
+			<a href="#top">Back to top</a>
+			<p>&copy 2017 Sharan Sajiv Menon</p>		
+    </body>
+</html>

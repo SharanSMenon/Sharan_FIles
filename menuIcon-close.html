@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+    	.bar1, .bar2, .bar3{
+        	height:6px;
+            width:35px;
+            background-color:black;
+            margin-bottom:5px;
+            transition:0.3s;
+        }
+        .container{
+        	cursor:pointer;
+          width:35px;
+					margin-left:20px;
+					margin-top:20px;
+        }
+        .change .bar1 {
+      -webkit-transform: rotate(-46deg) translate(-9px, 6px) ;
+      transform: rotate(-43deg) translate(-8px, 7px) ;
+			background-color:red;
+    }
+
+    .change .bar2 {opacity: 0;}
+
+    .change .bar3 {
+      -webkit-transform: rotate(46deg) translate(-8px, -8px) ;
+      transform: rotate(43deg) translate(-8px, -8px) ;
+			background-color:red;
+    }
+		.bar4, .bar5, .bar6{
+			width:6px;
+			height:25px;
+			background-color:black;
+			float:left;
+			margin-right:5px;
+			transition:0.3s;
+		}
+		.container2{
+			cursor:pointer;
+			width:33px;
+			height:25px;
+			margin-left:20px;
+			margin-top:20px;
+			position:relative;
+			z-index:2;
+		}
+		.change .bar4{
+			transform: rotate(90deg) scale3d(2,3,3) translate(-20px,2px);
+			transform-origin:bottom;
+		}
+		.change .bar5{
+			transform: scale3d(2,2,3) translate(26px,4px);
+			transform-origin:bottom;
+		}
+		.change .bar6{
+			transform:scale(2,2) translate(-11px,4px);
+			transform-origin:bottom;
+		}
+		.change .container2{
+			background-color:blue;
+			width:60px;
+			height:300px;
+
+		}
+		.back{
+			height:278px;
+			width:75px;
+			background-color:white;
+			position:relative;
+			margin-top:-270px;
+			left:17px;
+			z-index:0;
+			border-bottom:0px solid black;
+			transition:0.5s;
+			cursor:pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+	<br>
+	<div class="container2" >
+		<div class="bar4"></div>
+    <div class="bar5"></div>
+    <div class="bar6"></div>
+	</div>
+	<div class="container2" >
+		<div class="bar4"></div>
+    <div class="bar5"></div>
+    <div class="bar6"></div>
+	</div>
+	<div class="container2" >
+		<div class="bar4"></div>
+    <div class="bar5"></div>
+    <div class="bar6"></div>
+	</div>
+	<div class="container2" >
+		<div class="bar4"></div>
+    <div class="bar5"></div>
+    <div class="bar6"></div>
+	</div>
+	<div class="container2" >
+		<div class="bar4"></div>
+    <div class="bar5"></div>
+    <div class="bar6"></div>
+	</div>
+	<div class="container2" >
+		<div class="bar4"></div>
+    <div class="bar5"></div>
+    <div class="bar6"></div>
+	</div>
+	<div class="back" >
+
+	</div>
+	<br>
+	<div class="arrow-left">
+
+	</div>
+    <script>
+			var run =0;
+			var run2 =0;
+			var togg = false;
+			var toggle2 = false;
+			var container = document.querySelector('.container');
+			var container2 = document.getElementsByClassName('container2');
+			container.onclick = function () {
+				toggle(container)
+				on();
+			}
+			for (var i = 0; i < container2.length-1; i++) {
+				container2[i].onclick = function() {
+					toggle(container);
+					on();
+				}
+			}
+    	function toggle(x){
+        	x.classList.toggle("change");
+        }
+			function on(){
+				run++;
+				var sky = document.getElementsByClassName('container2');
+				var back = document.querySelector('.back');
+				if (run%2 == 1) {
+					back.style.backgroundColor = "blue";
+					back.style.borderBottom = "15px solid black";
+					toggle2 = true
+				}else{
+					back.style.backgroundColor = "white";
+					back.style.borderBottom = "0px solid black";
+					toggle2 = false;
+				}
+				for (var i = 0; i < sky.length; i++) {
+					sky[i].classList.toggle("change");
+				}
+			}
+    </script>
+</body>
+
+</html>

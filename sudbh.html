@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body>
+   <canvas id="canvas" width="1000" height="600" style="background-color:black;"></canvas>
+   <p id="pos" style="margin-left:1010px;margin-top:-600px;"></p>
+   <p id="s" style="margin-left:1010px;margin-top:20px;">Speed:</p>
+   <p id="h" style="margin-left:1010px;margin-top:30px;">Speed:</p>
+   <script type="text/javascript">
+    var c = document.getElementById('canvas');
+    var ct = c.getContext('2d');
+    var Anim = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+    var angle = 0;
+    var number = 2;
+    var number2 = 2;
+    var x = c.width / 2;
+    var y = c.height / 2;
+    window.addEventListener('keydown',this.check,false);
+    function check(e) {
+      var code = e.keyCode;
+      if(code == 37){
+        number += -1;
+      }
+      if(code == 38){
+        number2 += -1;
+      }
+      if(code == 39){
+        number += 1;
+      }
+      if(code == 40){
+        number2 += 1;
+      }
+    }
+    c.addEventListener('click',function(evt){
+      var rect = canvas.getBoundingClientRect();
+      var x2 = evt.clientX - rect.left;
+      var y2 = evt.clientY - rect.top;
+      x = x2;
+      y = y2;
+      number = 0;
+      number2 = 0;
+    });
+    function draw_c(){
+      ct.clearRect(0, 0, c.width, c.height);
+      ct.beginPath();
+      if(y >= c.height-50){
+        number2 = Math.abs(number2)*-1;
+      }
+      if(x >= c.width-50){
+        number = Math.abs(number)*-1;
+      }
+      if(x <= c.width*0+50){
+        number = Math.abs(number);
+      }
+      if(y <= c.height*0+50){
+        number2 = Math.abs(number2);
+      }
+      x += number;
+      y += number2;
+      ct.arc(x, y, 50, 0,6.28, false);
+      ct.fillStyle = "yellow";
+      ct.fill();
+      ct.closePath();
+      document.getElementById('pos').innerHTML = "("+x+","+y+")";
+      document.getElementById('s').innerHTML = "Vertical Speed: "+Math.abs(number2);
+      document.getElementById('h').innerHTML = "Horizontal Speed: "+Math.abs(number);
+      Anim(draw_c);
+    }
+   draw_c();
+   </script>
+
+ </body>
+</html>
+s
