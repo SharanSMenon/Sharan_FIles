@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Video player</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <style media="screen">
+  .prog-bar{
+    background-color:grey;
+    width:540px;
+    height:20px;
+  }
+  #prog{
+    color:white;
+    text-align:center;
+    font-family: 'Architects Daughter', cursive;
+  }
+  #comp{
+    color:green;
+  }
+  #video-controls{
+    width:58%;
+    height:27px;
+    background-color:#c4c3a1;
+  }
+  .vid-cont{
+    padding:3px;
+    height:480px;
+    background-color:#c4c3a1;
+    width:560px;
+    margin-left:350px;
+  }
+  button{
+    background-color:#616977;
+    border-radius:3px;
+    border:1px solid grey;
+    margin-bottom:3px;
+  }
+  button:hover{
+    background-color:grey;
+  }
+  comp{
+    padding:none;
+    margin:0;
+  }
+  #proger{
+    width:540px;
+  }
+  </style>
+ </head>
+ <body>
+    <div class="vid-cont">
+     <video width="550" height="365px" id="video">
+       <source src="C:\Users\sharan\Videos\Captures\football_clips.mp4.mp4" type="video/mp4">
+       Your browser does not support the video tag.
+     </video>
+     <div id="video-controls" style="width:550px;margin-top:0px;">
+     <button type="button" style="float:left;"id="play-pause"><span class="glyphicon glyphicon-play" id="pl"></span></button>
+     <input type="range" id="seek-bar" value="0" style="width:44%;float:left;margin-left:10px;">
+     <button type="button" style="float:left;margin-left:10px;"id="mute"><span id="mut"class="glyphicon glyphicon-volume-up"></span></button>
+     <input type="range" id="volume-bar"style="width:31%;float:left;margin-left:10px;margin-right:10px;" min="0" max="1" step="0.1" value="1">
+     <button type="button" id="full-screen"><span class="glyphicon glyphicon-resize-full"id="full"></span></button>
+     </div>
+     <div class="prog-bar">
+       <div id="prog" style="background-color:#1567c4;width:0%;"><span id="per">0</span>%</div>
+     </div>
+     <progress value="0" max="100" id="proger"></progress>
+     <p id="comp"></p>
+    </div>
+  <script type="text/javascript">
+  var num=0;
+  var vid_pas=true;
+  function move() {
+    var elem = document.getElementById('prog');
+    var elem2 = document.getElementById('proger');
+    var width = 0;
+    var id = setInterval(frame, video.duration*10);
+    function frame() {
+      if (num == 100) {
+        vid_pas=true
+        $("#comp").html("Video Complete!");
+        num=0;
+      }else if(vid_pas==false){
+        $("#comp").html("");
+        num=seekBar.value;
+        $("#per").html(num);
+        elem.style.width = num + '%'
+        $("#proger").val(num);
+      }
+    }
+  }
+  var mut = document.getElementById("mut");
+  var playButton = document.getElementById("play-pause");
+  var pla = document.getElementById('pl');
+  var muteButton = document.getElementById("mute");
+  var fullScreenButton = document.getElementById("full-screen");
+  var seekBar = document.getElementById("seek-bar");
+  var volumeBar = document.getElementById("volume-bar");
+  var full = document.getElementById('full');
+  playButton.addEventListener("click", function() {
+    if (video.paused == true) {
+      video.play();
+      pla.className = "glyphicon glyphicon-pause";
+      vid_pas=false;
+    }else{
+      video.pause();
+      pla.className = "glyphicon glyphicon-play";
+      vid_pas=true;
+    }
+  });
+  muteButton.addEventListener("click", function() {
+  if (video.muted == false) {
+    video.muted = true;
+    mut.className = "glyphicon glyphicon-volume-off";
+  } else {
+    video.muted = false;
+    mut.className = "glyphicon glyphicon-volume-up";
+  }
+  });
+  fullScreenButton.addEventListener("click", function() {
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.mozRequestFullScreen) {
+    video.mozRequestFullScreen(); // Firefox
+  } else if (video.webkitRequestFullscreen) {
+    video.webkitRequestFullscreen(); // Chrome and Safari
+  }
+  });
+  seekBar.addEventListener("change", function() {
+    var time = video.duration * (seekBar.value / 100);
+    video.currentTime = time;
+  });
+  // Update the seek bar as the video plays
+  video.addEventListener("timeupdate", function() {
+    var value = (100 / video.duration) * video.currentTime;
+    seekBar.value = value;
+  });
+  // Pause the video when the slider handle is being dragged
+  seekBar.addEventListener("mousedown", function() {
+    video.pause();
+  });
+  seekBar.addEventListener("mouseup", function() {
+    video.play();
+  });
+  // Event listener for the volume bar
+  volumeBar.addEventListener("change", function() {
+    video.volume = volumeBar.value;
+    if(volumeBar.value()>=1){
+
+    }
+
+  });
+  var run=0;
+   document.getElementById('play-pause').onclick=function(){
+     run=run+1;
+     if(run == 1){
+       move();
+     }
+   };
+
+   </script>
+   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ </body>
+</html>

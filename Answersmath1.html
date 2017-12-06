@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Answers for math problems</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<style>
+			body {
+				background:url(https://s-media-cache-ak0.pinimg.com/736x/81/6d/fd/816dfd710806e20aa40a7cd8c76d2e2d.jpg);
+				font-family:Cursive;
+				background-repeat:no-repeat;
+				background-size:cover;
+				background-attachment:fixed;
+				text-align:center;
+				color:blue;
+
+			}
+			h1
+				color:blue;
+			}
+			ul { display: inline-block; text-align: left; }
+			ol { display: inline-block; text-align: left; color:blue; }
+			p {color:blue;}
+      button{
+  			border-radius:3px;
+  			border: 1px solid black;
+  			font-family: 'Architects Daughter', cursive;
+  			height:30px;
+  			width:90px;
+  			background-color:#00bfff;
+  			font-size:1em;
+  		}
+  		input{
+  			border-radius:3px;
+  			border:1px solid black;
+  			font-family: 'Architects Daughter', cursive;
+  			height:30px;
+  			width:294px;
+  			font-size:1em;
+  			padding:3px;
+
+  		}
+  		button:hover{
+  			background-color:#0054db;
+  		}
+  		input:hover{
+  			background-color: #9da4b0;
+      }
+	  </style>
+    </head>
+    <body>
+		<h1> Answers to math problems</h1>
+		<ol>
+			<li>27</li>
+			<li>108</li>
+			<li>5</li>
+			<li>125</li>
+			<li>1,000,000</li>
+			<li>72</li>
+			<li>56</li>
+			<li>729</li>
+			<li>65,536</li>
+			<li>32,768</li>
+		</ol>
+			<p>How did you do?<br>Score is out of 10</p>
+      <input type="text" name="" value="" id="sco"/>
+      <button type="button" name="button" id="sub">Submit</button>
+      <p id="sc"></p>
+      <p id="pr"></p>
+      <p id="gb"></p>
+      <script type="text/javascript">
+        $("#sub").click(function(){
+          var score = $("#sco").val();
+          score=Number(score);
+          console.log(score);
+          $("#sc").html("You got "+score+"/10.");
+          var per=score*10;
+          $("#pr").html("That is "+per+"%.");
+          if (per >= 90){
+            $("#gb").html("Excellent. That is an A!");
+          }else if (per >= 80) {
+            $("#gb").html("Good. That is an B.");
+          }else if (per < 79) {
+            $("#gb").html("That is not a good score.");
+          }
+        });
+
+      </script>
+
+
+				<a href="file:///C:/sharan/Sharan's%20website_files/Sharan-Website.html">Click here to go to Sharan's website</a>
+
+
+
+    </body>
+</html>

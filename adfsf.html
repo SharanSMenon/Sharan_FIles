@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body>
+   <button type="button" id="new-window"name="button" onclick="windows();">CLick</button>
+  <script type="text/javascript">
+  function windows() {
+    var myWindow = window.open("", "myWindow", "width=600,height=400");
+    myWindow.document.write("<canvas style='height:300px;width:300px;background-color:black;'></canvas>")
+}
+
+
+  </script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>0 cookies</title>
+    <style media="screen">
+      #giant_cookie{
+        width:120px;
+        height:120px;
+        border-radius:50%;
+        background-color:brown;
+        cursor:pointer;
+      }
+      #giant_cookie:hover{
+        width:140px;
+        height:140px;
+      }
+      #giant_cookie:click{
+        width:140px;
+        height:140px;
+      }
+      #store{
+        width:100px;
+        list-style:none;
+        margin-left: -40px;
+      }
+      #store li{
+        padding:12px 8px 12px 20px;
+        margin-bottom:10px;
+        background-color:#eee;
+      }
+      #store li:hover{
+        background-color:grey;
+        color:white;
+        cursor:pointer;
+      }
+      .unavailable {
+        opacity:0.5;
+      }
+      .available{
+        opacity:1;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <div id="giant_cookie">
+
+    </div>
+    <p id="scoretext">0 cookies</p>
+    <p><span id="rte_per_sec">0</span> per second</p>
+    <ul id="store">
+
+    </ul>
+  </body>
+  <script src="cookie.js" charset="utf-8"></script>
+</html>

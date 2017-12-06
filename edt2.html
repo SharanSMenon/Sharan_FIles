@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Edt2</title>
+  <link rel="stylesheet" href="edt2.css">
+  <link rel="icon" href="file:///C:\sharan\Sharan_website_files\house2.PNG">
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+  <h1>Welcome to Edt2</h1>
+  <p>This is secure for that you are entering no sensitive data.</p>
+  <p>I am also not a bad guy.</p>
+  <div class="navig">
+    <span class="closeN" onclick="closeN()">&times;</span>
+    <h1>Section 1</h1>
+    <h1>Section 2</h1>
+    <h1>Section 3</h1>
+  </div>
+  <button onclick="openN()">&#9776;</button>
+  <button id="openModal" onclick="openModal()">Open modal</button>
+  <div class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="mdlcls" onclick="closeModal()">&times;</span>
+        <h1>Hello</h1>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel mi sit amet orci consequat suscipit. Quisque
+          molestie nec nulla sit amet dapibus. Vivamus molestie vehicula sem eget finibus. Pellentesque eu pretium nunc.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mattis ex nunc, vitae ornare justo consectetur
+          ut. Praesent a leo elementum, iaculis tortor vitae, congue purus. Mauris gravida orci at nibh eleifend pretium.
+          Nam facilisis ipsum vel erat sagittis rutrum. Ut interdum elit nulla. Nam sit amet eleifend ante. Vivamus ullamcorper
+          elementum nisl, nec fermentum turpis mollis eget. Donec dignissim nunc ut lectus rhoncus ornare. Nam et ultrices
+          velit. Vestibulum eu felis vel massa elementum congue. Aenean ante neque, aliquam quis fringilla sed, laoreet id
+          tellus. Vestibulum commodo augue eu est ullamcorper, vitae dapibus nunc mollis. Quisque vel vehicula odio. Donec
+          ullamcorper dapibus massa, vel consequat lectus rutrum vel. Donec in nulla cursus, pharetra orci in, pulvinar tellus.
+          In nec condimentum metus. Phasellus non odio eu mauris rutrum tempus vitae eget lectus. Vivamus sed justo vitae
+          elit luctus aliquet sed et lacus.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <p>&copy; 2017 Sharan Sajiv Menon</p>
+      </div>
+    </div>
+  </div>
+  <button onclick="openL2();" name="button">Open layer 2</button>
+  <button id="snackbarTog" onclick="snaToggle()">Toggle snackbar</button>
+  <hr>
+  <div id="snackbar">Lorem ipsum</div>
+  <h1>Sliders</h1>
+  <h2>Slider type 1</h2>
+  <div class="sliderC" id="1" onclick="toggle(this)">
+    <div class="slider"></div>
+  </div>
+  <br>
+  <div class="sliderC active" id="2" onclick="toggle(this)">
+    <div class="slider"></div>
+  </div>
+  <hr>
+  <h2>Slider type 2</h2>
+  <div class="sliderC2" id="3" onclick="toggle2(this)">
+    <div class="slider2"></div>
+  </div>
+  <br>
+  <div class="sliderC2 active2" id="4" onclick="toggle2(this)">
+    <div class="slider2"></div>
+  </div>
+  <hr>
+  <div class="pcont">
+    <div class="pbar"></div>
+  </div>
+  <p id="width"></p>
+  <button id="prun" onclick="run()">Run</button>
+  <hr>
+  <p>HTML</p>
+  <div class="pcont">
+    <div class="pbars html">97%</div>
+  </div>
+  <hr>
+  <p>CSS</p>
+  <div class="pcont">
+    <div class="pbars css">85%</div>
+  </div>
+  <hr>
+  <p>JS</p>
+  <div class="pcont">
+    <div class="pbars js">62%</div>
+  </div>
+  <hr>
+  <p>Math</p>
+  <div class="pcont">
+    <div class="pbars math">17%</div>
+  </div>
+  <hr>
+  <div class="tabs">
+    <button type="button" onclick="openTab(event,0)" class="tablinks active">Tab 1</button>
+    <button type="button" onclick="openTab(event,1)" class="tablinks">Tab 2</button>
+    <button type="button" onclick="openTab(event,2)" class="tablinks">Tab 3</button>
+  </div>
+  <div class="tabcontent">
+    <h1>Tab 1</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <div class="tabcontent">
+    <h1>Tab 2</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <div class="tabcontent">
+    <h1>Tab 3</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <hr>
+  <input class="filter" id="filter" placeholder="Filter" onkeyup="filter()">
+  <ul id="ul">
+  </ul>
+  <hr>
+  <input class="filter" id="tfilter" placeholder="Filter">
+  <label class="container">Name
+    <input type="radio" id="type" class="radioss" checked="checked" name="radio">
+    <span class="checkmark"></span>
+  </label>
+  <label class="container">Type
+    <input type="radio" id="type" class="radioss" name="radio">
+    <span class="checkmark"></span>
+  </label>
+  <table id="Table">
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+    </tr>
+    <tr>
+      <td>Cheetah</td>
+      <td>Mammal</td>
+    </tr>
+    <tr>
+      <td>Human</td>
+      <td>Mammal</td>
+    </tr>
+    <tr>
+      <td>Snake</td>
+      <td>Reptile</td>
+    </tr>
+    <tr>
+      <td>Frog</td>
+      <td>Amphibian</td>
+    </tr>
+    <tr>
+      <td>Albatross</td>
+      <td>Bird</td>
+    </tr>
+    <tr>
+      <td>Robin</td>
+      <td>Bird</td>
+    </tr>
+    <tr>
+      <td>Salamander</td>
+      <td>Amphibian</td>
+    </tr>
+    <tr>
+      <td>Lizard</td>
+      <td>Reptile</td>
+    </tr>
+    <tr>
+      <td>Elephant</td>
+      <td>Mammal</td>
+    </tr>
+    <tr>
+      <td>Carcharodontosaurus</td>
+      <td>Reptile</td>
+    </tr>
+    <tr>
+      <td>Tyrannosaurus</td>
+      <td>Reptile</td>
+    </tr>
+    <tr>
+      <td>Smilodon</td>
+      <td>Mammal</td>
+    </tr>
+    <tr>
+      <td>Newt</td>
+      <td>Amphibian</td>
+    </tr>
+    <tr>
+      <td>Clownfish</td>
+      <td>Fish</td>
+    </tr>
+  </table>
+  <hr>
+  <div class="checkmark2 one" onclick="toggle4(this)">
+    <div class="item6">Task</div>
+  </div>
+  <br>
+  <div class="checkmark2 two" onclick="toggle4(this)">
+    <div class="item6">Task</div>
+  </div>
+  <br>
+  <div class="checkmark2 three" onclick="toggle4(this)">
+    <div class="item6">Task</div>
+  </div>
+  <hr>
+  <button id="hvrbutt" name="button">
+    <span class="hvrspan">Hover </span>
+  </button>
+  <hr>
+  <h1>Sharan tag</h1>
+  <sharan-t equation="45 + 50"></sharan-t>
+  <hr>
+  <h1>Triangle</h1>
+  <div class="triang">
+
+  </div>
+  <br>
+  <div onclick="tgplayer(this)" class="contner">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+  </div>
+  <div class="close-button"></div>
+  <br>
+  <br>
+  <hr>
+  <h1>Site logo</h1>
+  <img width="350px" height="350px" src="file:///C:\sharan\Sharan_website_files\house2.PNG" alt="House">
+  <hr>
+  <h1>Div animation</h1>
+  <div class="animate">
+  </div>
+  <hr>
+  <h1>Symbols</h1>
+  <div class="arrow-left"></div>
+  <br>
+  <div class="arrow-top"></div>
+  <br>
+  <div class="arrow-right"></div>
+  <br>
+  <div class="arrow-bottom"></div>
+  <br>
+  <div class="circle"></div>
+  <br>
+  <div class="triangle"></div>
+  <br>
+  <div class="close-button"></div>
+  <br>
+  <div class="arrow-bottom"></div>
+  <br>
+  <hr>
+  <h1>Basic HTML Tutorial</h1>
+  <p>Click the button below to go to our Javascript tutorial</p>
+  <button onclick="openL2();">Javascript Tutorial</button>
+  <p>Let's Start!</p>
+  <pre class="codeDiv">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+ &lt;head&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;--C
+ &lt;body&gt;
+&lt;/html&gt;</pre>
+  <!--Layer 2-->
+  <div class="layer2">
+    <span onclick="closeL2();" class="layer2close">&times;</span>
+    <h1>Layer 2</h1>
+    <hr>
+    <h1>Sharan tag example</h1>
+    <sharan-t equation="54*43"></sharan-t>
+    <p>Custom Elements not supported by IE, Microsoft Edge or Mozilla Firefox</p>
+    <hr>
+    <h1>Basic Javascript tutorial</h1>
+    <pre class="codeDiv">&lt;script&gt;
+console.log("Hello World")
+&lt;/script&gt;</pre>
+    <p>&copy; 2017 Sharan Sajiv Menon</p>
+  </div>
+  <footer>
+    <p>&copy; 2017 Sharan Sajiv Menon</p>
+  </footer>
+</body>
+<script src="edt2.js" charset="utf-8"></script>
+
+</html>

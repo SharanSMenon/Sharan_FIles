@@ -1,0 +1,43 @@
+ul li{
+  padding:12px 8px 12px 20px;
+  width:300px;
+  background-color:#eee;
+  list-style:none;
+  transition:0.3s;
+}
+ul li:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+ul li:hover{
+  cursor:pointer;
+  background-color:lightgrey;
+  color:white;
+}
+ul li.checked {
+    background: #888;
+    color: #fff;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+.chkbox{
+  width:10px;
+  height:10px;
+  border:1px solid black;
+  cursor:pointer;
+  text-align:center;
+}
+.p{
+  margin-top:-7px;
+}

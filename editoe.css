@@ -1,0 +1,1243 @@
+/*This is editoe.css, the resaon why editoe.html looks so
+beautiful. This stylesheet works with editoe.html only.*/
+body{
+  font-family:"Comic Sans MS";
+  transition:0.5s;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 4; /* Sit on top */
+    left: 0;
+    top: 0;
+    border-radius:5px;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+}
+.foot a{
+  color:white;
+  text-decoration: none;
+}
+.foot a:hover{
+  text-decoration:underline;
+}
+.footer {
+   position:relative;
+   margin-left: -10px;
+   bottom:-24px;
+   width: 100%;
+   right:0;
+   background-color:black;
+   color: white;
+   text-align: center;
+   height:300px;
+   padding:9px;
+}
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #02ff89;
+    color:black;
+    width: 574px;
+}
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    font-family:"Comic Sans MS";
+    border-radius:0px;
+}
+.partial{
+  border-radius:0;
+  border:none;
+  margin-bottom: 5px;
+  width:150px;
+  position:relative;
+  left:-140px;
+  transition:0.5s;
+  height:50px;
+  color:white;
+}
+.partial:hover{
+  left:-10px;
+}
+/*Navig*/
+.navig{
+  background-color:rgb(0,0,0);
+  position:fixed;
+  left:0;
+  top:0;
+  width:0%;
+  text-align:center;
+  height:100%;
+  color:white;
+  transition:0.5s;
+  overflow:auto;
+  z-index:5;
+  display:block;
+}
+.navig a{
+  color:white;
+  text-decoration:none;
+  margin-bottom:10px;
+  font-size:25px;
+}
+.closec{
+  position:absolute;
+  right:20px;
+  font-size:60px;
+  top:10px;
+}
+a:hover{
+  color:grey;
+}
+.open{
+  color:black;
+  z-index:6;
+  text-decoration:none;
+  font-size:48px;
+  display:block;
+  position:relative;
+  width:35px;
+  left:0;
+}
+.nav{
+  position:fixed;
+  top:12px;
+  left:65px;
+  width:1250px;
+  overflow:hidden;
+  display: inline-block;
+
+}
+.open:hover{
+  color:black;
+}
+@media only screen and (max-width: 900px) {
+    .navig a {font-size: 18px;}
+    .nav{display:none;}
+}
+@media only screen and (max-width: 600px) {
+    .navig a {font-size: 11px;}
+}
+@media only screen and (max-width: 768px) {
+    .navig a {font-size: 15px;}
+}
+@media only screen and (max-width: 600px) {
+    .navig a {font-size: 11px;}
+}
+.closhelp{
+  position:fixed;
+  top:0;
+  display: none;
+  opacity:0;
+  transition:0.5s;
+  left:30%;
+  height:100%;
+  right:0;
+  background-color:rgba(0,0,0,0.7);
+  z-index:7;
+}
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.success {background-color: #4CAF50;} /* Green */
+.success:hover {background-color: #46a049;}
+
+.info {background-color: #2196F3;} /* Blue */
+.info:hover {background: #0b7dda;}
+
+.warning {background-color: #ff9800;} /* Orange */
+.warning:hover {background: #e68a00;}
+
+.danger {background-color: #f44336;} /* Red */
+.danger:hover {background: #da190b;}
+
+.default {background-color: #e7e7e7; color: black;} /* Gray */
+.default:hover {background: #ddd;}
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #10bc3b;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #1ecc5b;
+    color:white;
+}
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    width:550px;
+    height:0px;
+    transition:0.5s;
+    background-color:#32db6a;
+    overflow:auto;
+}
+/* Modal Content */
+button.accord3 {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    width:100%;
+    margin-bottom:0;
+    border-radius:0;
+    border-bottom:1px solid grey;
+    width:416px;
+}
+
+button.accord3.active, button.accord3:hover {
+    background-color: #ddd;
+}
+
+div.panel {
+    margin-top:-16px;
+    display: none;
+    background-color:#ddd;
+    margin-bottom:-23px;
+    width:400px;
+    padding:12px 8px 12px 8px;
+    border-bottom:1px solid grey;
+    height:150px;
+    overflow:auto;
+}
+.modal-content {
+    position: fixed;
+    top:80px;
+    background-color: #fefefe;
+    width:600px;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+    margin-left:25%;
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {
+  padding: 2px 16px;
+  overflow:auto;
+  height:300px;
+}
+button{font-family:"Comic Sans MS"}
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {top: -300px; opacity: 0}
+    to {top: 80px; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {top: -300px; opacity: 0}
+    to {top: 80px; opacity: 1}
+}
+@-webkit-keyframes slideOut {
+  from {top: 80px; opacity: 1}
+  to {top: -300px; opacity: 0}
+}
+
+@keyframes slideOut {
+    from {top: 80px; opacity: 1}
+    to {top: -300px; opacity: 0}
+}
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+.div{
+  height:100px;
+  width:100px;
+}
+footer{
+  background-color:gold;
+  right:0;
+  bottom:0;
+  position:fixed;
+  padding:12px 8px 12px 20px;
+  z-index:7;
+}
+.mySlides {
+  display:none;
+  width:600px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 600px;
+  position: relative;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  background-color:rgba(0,0,0,0.4)
+}
+
+/* Position the "next button" to the right */
+.next {
+  right:0px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: relative;
+  bottom:10px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.footimg{
+  background-color:rgba(0,0,0,0.7);
+  width:100%;
+  height:60px;
+  margin-top:-64px;
+  position:relative;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+.container{
+  width:600px;
+  height:470px;
+}
+.container3{
+    width:200px;
+      height:200px;
+  }
+  .imag2{width:100%;position:relative;z-index:1;}
+  .overlayimg{
+    position:relative;
+      left:0;
+      right:0;
+      overflow:hidden;
+      bottom:100%;
+      margin-top:-6px;
+      width:100%;
+      height:0%;
+      background-color:#008CBA;/*#008CBA*/
+      z-index:2;
+      transition:0.5s;
+  }
+  .activenav{
+    width:30%;
+
+  }
+  @keyframes zoom {
+    from{transform: scale(0);}
+    to{transform: scale(1);}
+  }
+  .overlayimg2{
+    position:relative;
+    left:0;
+    right:0;
+    overflow:hidden;
+    bottom:100%;
+    margin-top:-6px;
+    width:0;
+    height:calc(100% + 2px);
+    background-color:#008CBA;/*#008CBA*/
+    z-index:2;
+    transition:0.5s;
+  }
+  .container3:hover .overlayimg{
+    height:calc(100% + 2px);
+  }
+  .container3:hover .overlayimg2{
+    width:calc(100% + 0px);
+  }
+  .text2{
+    white-space: nowrap;
+    color: white;
+    font-size: 20px;
+    font-family:serif;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+
+  }
+  .google{
+    font-family:serif;
+    font-size:40px;
+      font-weight:300;
+  }
+  .g{
+    color:#4285F4;
+  }
+  .o{color:red;}
+  .o2{color:yellow;}
+  .l{color:green;}
+
+.piece{
+  height:350px;
+  background-color:beige;
+  padding:15px;
+  margin:10px;
+  color:black;
+  position:relative;
+  float: left;
+  display: inline-block;
+  overflow:auto;
+}
+.slcontainer{
+    width:60px;
+    height:30px;
+    background-color:#eee;
+    padding:5px;
+    transition:0.5s;
+    cursor:pointer;
+    overflow: visible;
+}
+.slider{
+  height:29px;
+    width:28px;
+    background-color:white;
+    position:relative;
+    left:0;
+    transition:0.5s;
+}
+.active .slider{
+  left:50%;
+}
+.active .slcontainer{
+  background-color:green;
+}
+.round .slider{
+  border-radius:50%;
+}
+.foot1{
+  height:100%;
+  width:31%;
+}
+.foot2{
+  height:100%;
+  width:33%;
+}
+.foot3{
+  height:100%;
+  width:32%;
+  border-right:none;
+}
+.foot{
+  float:left;
+  position:relative;
+  top:-12px;
+  height:308px;
+  bottom:12px;
+  left:-20px;
+  padding:8px;
+}
+.round .slcontainer{
+  border-radius:100px;
+}
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    width:40%;
+    transition:0.1s;
+    margin-bottom: 15px;
+    border-radius:3px;
+    animation-name: zoom;
+    animation-duration:0.4s;
+}
+#angul{
+  animation-name: zoom;
+  animation-duration:0.4s;
+}
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+.alert.primary {background-color: blue;}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+.closec{
+  position:absolute;
+  right:20px;
+  top:-10px;
+  font-size:60px;
+}
+.person-inf{
+  border-radius:3px;
+  background-color:#FFBF00;
+  padding: 6px 4px 6px 20px;
+  width:350px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 12s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+}
+.story{
+  border-radius:3px;
+  height:300px;
+  overflow:auto;
+  width:600px;
+  background-color:#FFBF00;
+  padding-left:5px;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 10s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+@-webkit-keyframes example {
+  0%   {background-color:pink;}
+  33%  {background-color:yellow;color:black;}
+  66%  {background-color:crimson;color:black;}
+  100% {background-color:pink;color:black;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {background-color:hotpink;}
+    33%  {background-color:yellow;color:black;}
+    66%  {background-color:crimson;color:black;}
+    100% {background-color:hotpink;color:black;}
+}
+.head{
+  background-color:grey;
+  width:215px;
+  padding-top:10px;
+  padding-bottom: 10px;
+  padding-left:10px;
+  padding-right: 10px;
+  text-align: center;
+  border-bottom:2px solid black;
+  cursor:pointer;
+}
+.data{
+  background-color:grey;
+  width:215px;
+  padding-top:10px;
+  padding-bottom: 10px;
+  padding-left:10px;
+  padding-right: 10px;
+  text-align: center;
+  display:none;
+}
+.note {
+  margin-bottom: 15px;
+  padding: 4px 12px;
+  width:400px;
+  background-color: #ddffdd;
+  border-left: 6px solid #4CAF50;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 10%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  width:680px;
+  list-style:none;
+}
+
+/* Style the list items */
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+ul li:last-child {
+}
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+.closeb {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.closeb:hover {
+  background-color: #4CAF50;
+  color: white;
+  cursor:pointer;
+}
+.header {
+  background-color: #4CAF50;
+  padding: 30px 40px;
+  color: white;
+  width:600px;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#alert_text{
+  border: none;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  border-radius:0px;
+  transition:0.3s;
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+#alert_text:hover{
+  color:black;
+  background-color:#eee;
+}
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 40px;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius:0px;
+  border-right:1px solid grey;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+input{
+  border:1px solid black;
+  border-radius:3px;
+  padding:2px;
+  font-family:"Comic Sans MS";
+}
+input:hover{
+  background-color:#75736d;
+  color:white;
+}
+.angul{
+  box-shadow:10px 10px 5px #888888;
+}
+button{
+  border-radius:3px;
+  border: 1px solid black;
+  padding:2px;
+  font-family: 'Architects Daughter', cursive;
+  background-color:#00bfff;
+  font-size:1em;
+}
+button:hover{
+  background-color:#0054db;
+}
+@keyframes Colors {
+    0%   {background-color:hotpink;}
+    33%  {background-color:yellow;color:black;}
+    66%  {background-color:crimson;color:black;}
+    100% {background-color:hotpink;color:black;transform: rotate(360deg);}
+}
+@keyframes Changer {
+	0%{
+    	height:100px;
+        width:100px;
+    }
+    12.5%{
+    	height:150px;
+        width:150px;
+    }
+    25%{
+    	height:200px;
+        width:200px;
+    }
+    37.5%{
+    	height:250px;
+        width:250px;
+    }
+    50%{
+    	height:300px;
+        width:300px;
+    }
+    62.5%{
+    	height:250px;
+        width:250px;
+    }
+    75%{
+    	height:200px;
+        width:200px;
+    }
+    87.5%{
+    	height:150px;
+        width:150px;
+    }
+    100%{
+    	height:100px;
+        width:100px;
+        transform: rotate(360deg);
+    }
+    }
+.colorc{
+  height: 150px;
+  width:130px;
+  margin-left:30px;
+  margin-top:50px;
+  background-color: lightblue;
+  animation: 4s Colors infinite linear;
+  padding: 12px 20px 12px 20px;
+  text-align: center;
+}
+.bigsma{
+	height: 100px;
+    width:100px;
+    text-align: center;
+    background-color: lightblue;
+	animation: 4s Changer infinite linear;
+    margin-left:300px;
+    margin-top:-100px;
+    padding: 12px 8px 12px 40px;
+    z-index:2;
+}
+.animbox{
+  padding:padding: 80px 70px 80px 60px;
+  background-color:#eee;
+  width:750px;
+  height:600px;
+  z-index: 2;
+}
+button{
+  cursor:pointer;
+  padding:5px;
+}
+input{
+  padding:6px;
+}
+.SpecInfo{
+  background-color: green;
+  padding: 1px 8px 12px 20px;
+  color:white;
+  width:600px;
+  display:none;
+  overflow: auto;
+  height:300px;
+}
+.SpecInfo::-webkit-scrollbar {
+    width:10px;
+    background-color:#7583;
+    cursor:pointer;
+}
+.SpecInfo::-webkit-scrollbar-thumb {
+    background-color:grey;
+    cursor:pointer;
+}
+.SpecInfo::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    cursor:crosshair;
+}
+.SpecInfo::-webkit-scrollbar-track {
+    background-color:darkgrey;
+    cursor:pointer;
+}
+.SpecName{
+  background-color: green;
+  padding: 12px 8px 12px 20px;
+  color:white;
+  width:600px;
+  border-bottom:1px solid black;
+  cursor:pointer;
+}
+.acHed{
+  padding:12px 15px 12px 40px;
+  background-color:red;
+  width:600px;
+  border-bottom:1px solid black;
+  cursor:pointer;
+}
+.accordd{
+  padding:12px 15px 12px 40px;
+  background-color:red;
+  margin-bottom:10px;
+  width:600px;
+  display:none;
+}
+nav{
+  background-color:gold;
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  height:35px;
+  width:100%;
+  overflow:hidden;
+  padding:12px 8px 12px 20px;
+  z-index:3;
+}
+code{
+  background-color:#eee;
+  color:darkred;
+  padding: 3px;
+}
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.angul{
+  height:400px;
+  overflow: auto;
+  width:400px;
+  padding:12px 8px 12px 10px;
+}
+.angul::-webkit-scrollbar {
+    width: 10px;
+    background-color:#7583;
+    cursor:pointer;
+}
+.angul h1{
+  position:absolute;
+  background-color:#eee;
+  width:398px;
+  margin-top:-12px;
+  margin-left:-10px;
+  padding-left:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+
+}
+#snackbar{
+    color:white;
+    background-color:#333;
+    padding:16px;
+    border-radius:5px;
+    position:fixed;
+    bottom:-70px;
+    margin-left: -125px;
+    left:50%;
+    transition:0.5s;
+    z-index:4;
+  }
+
+.angul::-webkit-scrollbar-thumb {
+    background-color:grey;
+    cursor:pointer;
+}
+.angul::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    cursor:crosshair;
+}
+.angul::-webkit-scrollbar-track {
+    background-color:darkgrey;
+    cursor:pointer;
+}
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  float:right;
+}
+body::-webkit-scrollbar {
+    width: 30px;
+    background-color:white;
+    cursor:pointer;
+}
+body::-webkit-scrollbar-thumb {
+    background-color:grey;
+    cursor:pointer;
+}
+body::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    cursor:crosshair;
+}
+body::-webkit-scrollbar-track {
+    background-color:#eee;
+    cursor:pointer;
+}
+body::-webkit-scrollbar-track:hover{
+    background-color:darkgrey;
+    cursor:pointer;
+}
+.modal-body::-webkit-scrollbar {
+    width:20px;
+    background-color:#7583;
+    cursor:pointer;
+}
+.modal-body::-webkit-scrollbar-thumb {
+    background-color:#06ad0c;
+    cursor:pointer;
+}
+.modal-body::-webkit-scrollbar-thumb:hover{
+    background-color: green;
+    cursor:crosshair;
+}
+.modal-body::-webkit-scrollbar-track {
+    background-color:#31d837;
+    cursor:pointer;
+}
+/*Species info scrool*/
+/*tabcontent scrollbar*/
+.tabcontent::-webkit-scrollbar {
+    width: 10px;
+    background-color:#7583;
+    cursor:pointer;
+}
+.tabcontent::-webkit-scrollbar-thumb {
+    background-color:grey;
+    cursor:pointer;
+}
+.tabcontent::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    cursor:crosshair;
+}
+.tabcontent::-webkit-scrollbar-track {
+    background-color:darkgrey;
+    cursor:pointer;
+}
+.tab2{
+    width:150px;
+    height:400px;
+    background-color:#eee;
+    border-right:1px solid grey;
+    float:left
+}
+.tabcontent2{
+  float: left;
+  padding: 0px 12px;
+  width:0px;
+  border-left: none;
+  display:none;
+  background-color:#eee;
+  height: 400px;
+  overflow:auto;
+  transition:0.5s;
+}
+.tabcontent2::-webkit-scrollbar {
+    width: 10px;
+    background-color:#7583;
+    cursor:pointer;
+}
+.tabcontent2::-webkit-scrollbar-thumb {
+    background-color:grey;
+    cursor:pointer;
+}
+.tabcontent2::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    cursor:crosshair;
+}
+.tabcontent2::-webkit-scrollbar-track {
+    background-color:darkgrey;
+    cursor:pointer;
+}
+.navig::-webkit-scrollbar {
+    width: 10px;
+    background-color:#7583;
+    cursor:pointer;
+}
+button.accord3:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+button.accord3.active:after {
+    content: "\2212";
+}
+img{
+  animation:zoom 0.4s;
+}
+.navig::-webkit-scrollbar-thumb {
+    background-color:grey;
+    cursor:pointer;
+}
+.navig::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    cursor:crosshair;
+}
+.navig::-webkit-scrollbar-track {
+    background-color:darkgrey;
+    cursor:pointer;
+}
+div.panel::-webkit-scrollbar {
+    width: 10px;
+    background-color:#7583;
+    cursor:pointer;
+}
+div.panel::-webkit-scrollbar-thumb {
+    background-color:grey;
+    cursor:pointer;
+}
+div.panel::-webkit-scrollbar-thumb:hover{
+    background-color: black;
+    cursor:crosshair;
+}
+div.panel::-webkit-scrollbar-track {
+    background-color:darkgrey;
+    cursor:pointer;
+}
+.tab2 button{
+  width:100%;
+  border:none;
+  border-radius:0;
+  border-bottom:1px solid grey;
+  height:50px;
+  background-color:lightgrey;
+  transition:0.3s;
+}
+.spacer{
+  width:70%;
+}
+.modal img{
+  animation:none;
+}
+.tab2 button:hover{
+  background-color:grey;
+}
+.tab2 .active{
+  background-color: grey;
+  color:white;
+}
+@media only screen and (max-width:1000px) {
+  .modal-content{
+    width:100%;
+    height:100%;
+    margin:0;
+    top:0;
+    bottom:0;
+  }
+  .modal-footer{
+    height:10%;
+  }
+  .modal-body{
+    height:80%;
+  }
+  .modal-header{
+    height:10%;
+    font-size:15px;
+  }
+  #snackbar{
+    left:10px;
+  }
+  @-webkit-keyframes slideIn {
+      from {top: -300px; opacity: 0}
+      to {top: 0px; opacity: 1}
+  }
+
+  @keyframes slideIn {
+      from {top: -300px; opacity: 0}
+      to {top: 0px; opacity: 1}
+  }
+}
+pre{
+  background-color:lightgrey;
+  display:inline-block;
+  padding-bottom:20px;
+  padding-left:10px;
+  padding-right:20px;
+  counter-reset: line-numbering;
+}
+pre .line::before {
+    content: counter(line-numbering);
+    counter-increment: line-numbering;
+    padding-right: 1em;
+    width: 10px;
+    font-size:10px;
+    color:black;
+    text-align: right;
+    opacity: 0.5;
+}
+code{
+  background-color:lightgrey;
+}

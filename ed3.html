@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="ed3.css">
+    <link rel="shortcut icon" href="file:///C:\Users\sharan\Pictures\2016-06\DSC_0162.JPG">
+    <title>Ed3</title>
+</head>
+<body class="">
+    <div class="navig">
+        <span class="closeN" onclick="closeN()">&times;</span>
+        <h1>Link 1</h1>
+        <h1>Link 2</h1>
+        <h1>Link 3</h1>
+    </div>
+    <h1>Ed3</h1>
+    <p>Welcome to Ed3. A test page for <br>more features. This page focuses on responsive <br> design so this is
+    different from edt2 and editoe</p>
+    <h2>Link to other pages</h2>
+    <ul>
+        <li><a href="editoe.html">Editoe</a></li>
+        <li><a href="edt2.html">Edt2</a></li>
+    </ul>
+    <hr>
+    <button onclick="openN()">Open Navigation</button>
+    <button onclick="openL2()">Open Layer 2</button>
+    <hr>
+    <h2>Typewriter effect</h2>
+    <button onclick="typeWriter()">Start typewriting</button>
+    <button onclick="reset()">Erase</button>
+    <p id="typeWriter" style="width:400px;"></p>
+    <hr>
+    <div class="tabheader">
+        <button class="active" style="background-color:green;color:white;" onclick="openTab(0)">Tab 1</button>
+        <button style="background-color:red;color:white;" onclick="openTab(1)">Tab 2</button>
+        <button style="background-color:blue;color:white;" onclick="openTab(2)">Tab 3</button>
+    </div>
+    <div class="tabcontent">
+        <h1>Tab 1</h1>
+        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Iure repellendus porro, quos dicta doloremque doloribus ex explicabo voluptas optio soluta fugit culpa nesciunt esse ratione quo qui earum modi dolorum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem porro quisquam vel cumque id? Exercitationem dolorum accusamus explicabo, atque iusto est eligendi aspernatur fugiat, dolor commodi ab quo quidem impedit!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa modi dolorum repudiandae, non vitae tempore architecto aliquam dolores recusandae voluptates expedita voluptate explicabo blanditiis alias perspiciatis. Totam magnam nam molestias?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quaerat et. Amet impedit architecto quo consectetur ratione quaerat! Architecto ut ex at ab est beatae dolore, nemo consequuntur possimus quaerat.</p>
+    </div>
+    <div class="tabcontent">
+        <h1>Tab 2</h1>
+        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Iure repellendus porro, quos dicta doloremque doloribus ex explicabo voluptas optio soluta fugit culpa nesciunt esse ratione quo qui earum modi dolorum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem porro quisquam vel cumque id? Exercitationem dolorum accusamus explicabo, atque iusto est eligendi aspernatur fugiat, dolor commodi ab quo quidem impedit!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa modi dolorum repudiandae, non vitae tempore architecto aliquam dolores recusandae voluptates expedita voluptate explicabo blanditiis alias perspiciatis. Totam magnam nam molestias?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quaerat et. Amet impedit architecto quo consectetur ratione quaerat! Architecto ut ex at ab est beatae dolore, nemo consequuntur possimus quaerat.</p>
+    </div>
+    <div class="tabcontent">
+        <h1>Tab 3</h1>
+        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Iure repellendus porro, quos dicta doloremque doloribus ex explicabo voluptas optio soluta fugit culpa nesciunt esse ratione quo qui earum modi dolorum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem porro quisquam vel cumque id? Exercitationem dolorum accusamus explicabo, atque iusto est eligendi aspernatur fugiat, dolor commodi ab quo quidem impedit!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa modi dolorum repudiandae, non vitae tempore architecto aliquam dolores recusandae voluptates expedita voluptate explicabo blanditiis alias perspiciatis. Totam magnam nam molestias?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quaerat et. Amet impedit architecto quo consectetur ratione quaerat! Architecto ut ex at ab est beatae dolore, nemo consequuntur possimus quaerat.</p>
+    </div>
+    <hr>
+    <h1>Filter</h1>
+    <h2></h2>
+    <input type="text" class="filter" onkeyup="filter();" id="list">
+    <ul id="fltul">
+        <li>Sharan</li>
+        <li>Sajiv</li>
+        <li>Anu</li>
+        <li>Cheetah</li>
+        <li>Lion</li>
+        <li>Tiger</li>
+        <li>Leopard</li>
+        <li>Jaguar</li>
+        <li>Jahnvi</li>
+    </ul>
+    <div class="layer2">
+        <span onclick="closeL2();"class="layer2close">&times;</span>
+        <h1>Layer 2</h1>
+        <hr>
+        <h2>Random text</h2>
+        <p>lorem ipsum dolor sit amet consectetur adipisicing elit. Iure repellendus porro, quos dicta doloremque doloribus ex explicabo voluptas optio soluta fugit culpa nesciunt esse ratione quo qui earum modi dolorum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem porro quisquam vel cumque id? Exercitationem dolorum accusamus explicabo, atque iusto est eligendi aspernatur fugiat, dolor commodi ab quo quidem impedit!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa modi dolorum repudiandae, non vitae tempore architecto aliquam dolores recusandae voluptates expedita voluptate explicabo blanditiis alias perspiciatis. Totam magnam nam molestias?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, quaerat et. Amet impedit architecto quo consectetur ratione quaerat! Architecto ut ex at ab est beatae dolore, nemo consequuntur possimus quaerat.</p>
+    </div>
+</body>
+<script src="ed3.js"></script>
+</html>

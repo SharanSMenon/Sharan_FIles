@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Animation</title>
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+ </head>
+ <body>
+   <p id = "mod">Slide 1 out of 4</p>
+   <img src="https://upload.wikimedia.org/wikipedia/en/1/17/Batman-BenAffleck.jpg" alt="" style="display:none;" id = "bat">
+   <img src="https://vignette4.wikia.nocookie.net/superman/images/b/b1/Superman_Action_976_Gary_Frank.png/revision/latest/scale-to-width-down/288?cb=20170501140424" alt="" style="display:none;" id = "super">
+   <img src="https://www.designmantic.com/blog/wp-content/uploads/2016/04/Batman-vs-Superman-2016-Logo.jpg" alt="" style="display:none;" id = "fight">
+   <canvas id="canvas" width="300" height="300" style="border:1px solid black;margin-left:100px;margin-top:100px;background-color:#eee;"></canvas>
+   <script type="text/javascript">
+     var c = document.getElementById('canvas')
+     var ctx = c.getContext("2d");
+     var currentScene = 0;
+     var oldtext;
+     var num;
+     var ver = 0;
+     var ver2 = -1
+     var clicked = false;
+     var Anim = window.requestAnimationFrame ||
+                             window.mozRequestAnimationFrame ||
+                             window.webkitRequestAnimationFrame ||
+                             window.msRequestAnimationFrame;
+     function scene1(){
+       ctx.clearRect(0, 0, c.width, c.height);
+       $("#canvas").css("background-color","red");
+       ctx.font = "30px Arial";
+       ctx.fillStyle = 'black';
+       oldtext = "Introducing...";
+       ctx.fillText(oldtext,10,50);
+       num = 1;
+     }
+     function scene2(){
+       ctx.clearRect(0, 0, c.width, c.height);
+       ctx.font = "30px Arial";
+       //ctx.fillStyle = 'green';
+       //ctx.fillText(oldtext,10,50);
+       $("#canvas").css("background-color","black");
+       ctx.fillStyle = 'yellow';
+       oldtext = "Batman";
+       ctx.fillText(oldtext,10,50);
+       var img = document.getElementById("bat");
+       ctx.drawImage(img,50,110,90,100);
+       num = 2;
+     }
+     function scene3(){
+       ctx.clearRect(0, 0, c.width, c.height);
+       ctx.font = "30px Arial";
+       //ctx.fillStyle = 'green';
+       //ctx.fillText(oldtext,10,50);
+       $("#canvas").css("background-color","blue");
+       ctx.fillStyle = 'red';
+       oldtext = "and Superman";
+       ctx.fillText(oldtext,10,50);
+       var img = document.getElementById("super");
+       ctx.drawImage(img,50,110,90,100);
+       num = 3;
+     }
+     function scene4(){
+       ctx.clearRect(0, 0, c.width, c.height);
+       ctx.font = "25px Arial";
+       //ctx.fillStyle = 'green';
+       //ctx.fillText(oldtext,10,50);
+       $("#canvas").css("background-color","yellow");
+       ctx.fillStyle = 'red';
+       oldtext = "They are about to fight";
+       ctx.fillText(oldtext,10,50);
+       var img = document.getElementById("fight");
+       ctx.drawImage(img,ver,110,180,90);
+       num = 4;
+       if(ver==120){
+         ver2 = 1
+       }
+       if(ver==0){
+         ver2 = -1
+       }
+       ver = ver - ver2;
+       if(clicked == false){
+         requestAnimationFrame(scene4);
+       }
+       if(clicked == true){
+         cancelAnimationFrame(scene4);
+         scene1();
+       }
+     }
+
+     c.addEventListener('click',function(){
+       currentScene = currentScene + 1;
+       // 0 is last and the scenes go in numerical order.
+       // 4 scenes example: 1,2,3,0
+       // 1 is first scene
+       // 2 is second scene
+       // 3 is third scene
+       // 0 is fourth scene
+       if(currentScene%4 == 1){
+         clicked = true;
+         if(clicked == true){
+           cancelAnimationFrame(scene4);
+         }
+         scene1();
+         console.log(currentScene);
+       }
+       if(currentScene%4 == 2){
+         scene2();
+         console.log(currentScene);
+       }
+       if(currentScene%4 == 3){
+         scene3();
+         console.log(currentScene);
+       }
+       if(currentScene%4 == 0){
+         clicked = false;
+         scene4();
+         if(clicked == true){
+           cancelAnimationFrame(scene4);
+         }
+         console.log(currentScene);
+       }
+       console.log(currentScene);
+       $("#mod").html("Slide "+num+" out of 4")
+     });
+     scene1();
+   </script>
+ </body>
+</html>

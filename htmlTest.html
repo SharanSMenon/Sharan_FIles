@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GitHubTest</title>
+    <link rel="stylesheet" href="htmlTest.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Geo" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <span class="logo">Code lessons</span>
+      <a href="#materials" style="margin-left:135px;">Materials</a>
+      <a href="#sample">Sample</a>
+      <a href="#HTML">HTML</a>
+      <a href="#">CSS</a>
+      <a href="#">JS</a>
+      <a href="#">Others</a>
+    </nav>
+    <br>
+    <br>
+    <h2 id="materials">Materials</h2>
+    <ol>
+      <li>An computer</li>
+      <li>An text editor.<br> <a href="https://atom.io">Atom</a> is a good text editor.</li>
+      <li>An place to run your html.<br>Use your browser <br>
+      Google Chrome should work with all of these tutorials</li>
+      <li><a href="https://www.w3schools.com">W3Schools</a>. It is an reference</li>
+      <li>Basic knowledge of how to use computers</li>
+    </ol>
+    <p>A place to write and test your code is W3School's <a href="https://www.w3schools.com/html/tryit.asp?filename=tryhtml_basic">Tryit editor.</a></p>
+    <h2 id="sample">Sample</h2>
+    <pre class="codeDiv"><code><em>&lt;!DOCTYPE html&gt;</em>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Basic HTML&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;!--HTML--&gt;
+  &lt;p id="text"&gt;&lt;/p&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Do item 1&lt;/li&gt;
+    &lt;li&gt;Do item 2&lt;/li&gt;
+    &lt;li&gt;Do item 3&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;!--Javascript--&gt;
+  &lt;script&gt;
+    var alerts = ["Hi","Bye"];
+    for(var i = 0; i < alerts.length; i++){
+      /*Alert each item in alerts list*/
+      alert(alerts[i]);
+      document.getElementById("text").innerHTML += alerts[i];
+    }
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+    <br>
+    <p>At the end of this mini-course, you <br>should be able to make something <br> like the example above.</p>
+    <p>Note: <code class="codeDiv">&lt;ol&gt;</code> stands for Ordered List</p>
+    <h2 id="HTML">HTML</h2>
+    <h3>Begin</h3>
+    <p>The example below is basic html:</p>
+    <pre class="codeDiv"><code><em>&lt;!DOCTYPE html&gt;</em>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Learn Basic HTMl&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!--HTML in the body is displayed--&gt;
+    &lt;p&gt;Hello world!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;HTML&gt;
+    </code></pre>
+    <p>Every single html file begins with <code class="codeDiv"><em>&lt;!DOCTYPE html&gt;</em></code>.<br>Then there is the <code class="codeDiv">&lt;body&gt;</code> tag. Every tag has a closing tag: <code class="codeDiv">&lt;/tagname&gt;</code></p>
+    <p>Example:</p>
+    <code class="codeDiv">
+    &lt;p&gt;Text&lt;/p&gt;
+    </code>
+    <p>The opening <code>p</code> tag has a closing <code>p</code> tag</p>
+    <h3>Text types</h3>
+    <pre class="codeDiv"><code><em>&lt;!DOCTYPE html&gt;</em>
+&lt;html>
+ &lt;head>
+  &lt;title&gt;General Tags&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;h1>This is a header&lt;/h1&gt;
+  &lt;h2>This is another header&lt;/h2&gt;
+  &lt;h3>This is a another header&lt;/h3&gt;
+  &lt;h4>This is a another header&lt;/h4&gt;
+  &lt;h5>This is a another header&lt;/h5&gt;
+  &lt;h6>This is a another header&lt;/h6&gt;
+  &lt;p>This is a paragraph&lt;/p&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+    <p>Examples:</p>
+    <code class="codeDiv">&lt;H1&gt;</code>:<h1>H1</h1>
+    <h3>Text decorations</h3>
+    <pre class="codeDiv"><code><em>&lt;!DOCTYPE html&gt;</em>
+&lt;html>
+ &lt;head>
+  &lt;title&gt;B.U.I.S&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;b>This text is bolded&lt;/b&gt;
+  &lt;u>This text is underlined&lt;/u&gt;
+  &lt;i>This text is in itallics&lt;/i&gt;
+  &lt;em>This text is also in itallics&lt;/em&gt;
+  &lt;s>This text has a line thorugh it&lt;/s&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Note: <code class="codeDiv">&lt;em&gt;</code> and <code class="codeDiv">&lt;i&gt;</code> are the same thing.<p>
+<h3>Other text types</h3>
+<pre class="codeDiv"><code><em>&lt;!DOCTYPE html&gt;</em>
+&lt;html>
+ &lt;head>
+  &lt;title&gt;Other text types&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;code>This is computer code&lt;/b&gt;
+  &lt;samp>This is sample output from a computer program.&lt;/u&gt;
+  &lt;pre>This is preformatted text&lt;/i&gt;
+  &lt;mark>This text has been highlighted&lt;/em&gt;
+  &lt;kbd>This is a keyboard input (mostly useless)&lt;/s&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+    <p>Note: tags like <code class="codeDiv">&lt;kbd&gt;</code><br>are mostly useless but <br>still used.</p>
+    <br>
+    <h3>More tags</h3>
+    <p>The next fews lessons will be about other tags <br>like the <code class="codeDiv">&lt;table&gt;</code>, <code class="codeDiv">&lt;ul&gt;</code>, <code class="codeDiv">&lt;ol&gt;</code>, and many other tags.</p>
+  </body>
+  <script src="htmlTest.js" charset="utf-8"></script>
+</html>

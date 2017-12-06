@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Tic-Tac-Toe</title>
+ </head>
+ <body>
+   <button type="button" name="button" style="margin-top:10px;"><a href="file:///C:/sharan/Sharan's%20website_files/dd.html">Reset</a></button>
+   <p id="info"style="margin-top:6px;width:100px;">Player X turn</p>
+   <canvas id="canvas" width="600" height="600" style="background-color:black;border:1px solid black; margin-left:150px;margin-top:-70px;"></canvas>
+   <p id="test"></p>
+
+   <script type="text/javascript">
+     var canvas = document.getElementById('canvas');
+     var ctx = canvas.getContext("2d");
+     var turn = "X";
+     var grid = [[" "," "," "],[" "," "," "],[" "," "," "]];
+     var ini = 0;
+     var won = false;
+     var cwon = false;
+     var chance11 = 0;
+     var chance = 0;
+     var chance0 = 0;
+     var chance1 = 1;
+     var chance2 = 2;
+     var chance3 = 3;
+     var chance4 = 4;
+     var chance5 = 5;
+     var chance6 = 6;
+     var chance7 = 7;
+     var chance8 = 8;
+     var chance9 = 9;
+     var chance10 = 10;
+     var tie = false;
+     //functions
+     //switch function
+     function el(){
+       var j = Math.random();
+       j = j*3;
+       j = Math.floor(j);
+       var k = Math.random();
+       k = k*3;
+       k = Math.floor(k);
+       if(grid[j][k] == " "){
+        grid[j][k] = "O"
+        chance11 = 1;
+       }else{
+        el();
+       }
+     }
+     function turns(){
+       if(turn == "X"){
+         turn = "O";
+         document.getElementById('info').innerHTML = "Player O turn";
+       }else{
+         turn = "X"
+         document.getElementById('info').innerHTML = "Player X turn";
+       }
+     }
+     function computer(){
+       if(turn == "O"){
+         //place
+         for(z = 0;z < 3;z++){
+           if(chance11 == 0){
+             if(grid[z][0] == "O" && grid[z][1] == "O"){
+               block = 2;
+               if(grid[z][block] == " "){
+                 grid[z][block]=turn;
+               }
+               chance11 = 1;
+             }
+           }
+           if(chance11 == 0){
+             if(grid[z][0] == "O" && grid[z][2] == "O"){
+               block = 1;
+               if(grid[z][block] == " "){
+                 grid[z][block]=turn;
+               }
+               chance11 = 1;
+             }
+           }
+           if(chance11 == 0){
+             if(grid[z][2] == "O" && grid[z][1] == "O"){
+               block = 0;
+               if(grid[z][block] == " "){
+                 grid[z][block]=turn;
+               }
+               chance11 = 1;
+             }
+           }
+         }
+         for(h = 0;h < 3;h++){
+           if(chance11 == 0){
+             if(grid[0][h] == "O" && grid[1][h] == "O"){
+               block = 2;
+               if(grid[block][h]==turn){
+                 el();
+               }
+               chance11 = 1;
+             }
+           }
+           if(chance11 == 0){
+             if(grid[0][h] == "O" && grid[2][h] == "O"){
+               block = 1;
+               if(grid[block][h] == " "){
+                 grid[block][h]=turn;
+               }
+               chance11 = 1;
+             }
+           }
+           if(chance11 == 0){
+             if(grid[2][h] == "O" && grid[1][h] == "O"){
+               block = 0;
+               if(grid[block][h] == " "){
+                 grid[block][h]=turn;
+               }
+               chance11 = 1;
+             }
+           }
+         }
+
+         if(chance11 == 0){
+           if(grid[0][0] == "O" && grid[1][1] == "O"){
+             if(grid[2][2] == " "){
+               grid[2][2]=turn;
+             }
+             chance11 = 1;
+           }
+         }
+         if(chance11 == 0){
+           if(grid[1][1] == "O" && grid[2][2] == "O"){
+             if(grid[0][0] == " "){
+               grid[0][0]=turn;
+             }
+             chance11 = 1;
+           }
+         }
+          if(chance11 == 0){
+           if(grid[2][2] == "O" && grid[0][0] == "O"){
+             if(grid[1][1] == " "){
+               grid[1][1]=turn;
+             }
+             chance11 = 1;
+           }
+         }
+         if(chance11 == 0){
+           if(grid[0][2] == "O" && grid[1][1] == "O"){
+             if(grid[2][0] == " "){
+               grid[2][0]=turn;
+             }
+             chance11 = 1;
+           }
+         }
+         if(chance11 == 0){
+           if(grid[0][2] == "O" && grid[2][0] == "O"){
+             if(grid[1][1] == " "){
+               grid[1][1]=turn;
+             }
+             chance11 = 1;
+           }
+         }
+          if(chance11 == 0){
+           if(grid[2][0] == "O" && grid[1][1] == "O"){
+             if(grid[0][2] == " "){
+               grid[0][2]=turn;
+             }
+             chance11 = 1;
+           }
+         //block
+         for(m = 0;m < 3;m++){
+           if(chance == 0 && chance11 == 0){
+             if(grid[m][0] == "X" && grid[m][1] == "X"){
+               block = 2;
+               if(grid[m][block]==" "){
+                 grid[m][block]=turn;
+               }
+               chance = 1;
+               chance11 = 1;
+             }
+           }
+           if(chance0 == 0 && chance11 == 0){
+             if(grid[m][0] == "X" && grid[m][2] == "X"){
+               block = 1;
+               if(grid[m][block]==" "){
+                 grid[m][block]=turn;
+               }
+               chance0 = 1;
+               chance11 = 1;
+             }
+           }
+           if(chance1 == 1 && chance11 == 0){
+             if(grid[m][2] == "X" && grid[m][1] == "X"){
+               block = 0;
+               if(grid[z][block]==" "){
+                 grid[z][block]=turn;
+               }
+               chance1 = 2;
+               chance11 = 1;
+             }
+           }
+         }
+         for(o = 0;o < 3;o++){
+           if(chance2 == 2 && chance11 == 0){
+             if(grid[0][o] == "X" && grid[1][o] == "X"){
+               block = 2;
+               if(grid[block][o] == " "){
+                 grid[block][hn]=turn;
+               }
+               chance2 = 3;
+               chance11 = 1;
+             }
+           }
+           if(chance3 == 3 && chance11 == 0){
+             if(grid[0][h] == "X" && grid[2][h] == "X"){
+               block = 1;
+               if(grid[block][h] == " "){
+                 grid[block][h]=turn;
+               }
+               chance3 = 4;
+               chance11 = 1;
+             }
+           }
+           if(chance4 == 4 && chance11 == 0){
+             if(grid[2][h] == "X" && grid[1][h] == "X"){
+               block = 0;
+               if(grid[block][h] == " "){
+                 grid[block][h]=turn;
+               }
+               chance4 = 5;
+               chance11 = 1;
+             }
+           }
+         }
+
+         if(chance5 == 5 && chance11 == 0){
+           if(grid[0][0] == "X" && grid[1][1] == "X"){
+             if(grid[2][2] == " "){
+               grid[2][2]=turn;
+             }
+             chance5 = 6;
+             chance11 = 1;
+           }
+         }
+         if(chance6 == 6 && chance11 == 0){
+           if(grid[1][1] == "X" && grid[2][2] == "X"){
+             if(grid[0][0] == " "){
+               grid[0][0]=turn;
+             }
+             chance6 = 7;
+             chance11 = 1;
+           }
+         }
+          if(chance7 == 7 && chance11 == 0){
+           if(grid[2][2] == "X" && grid[0][0] == "X"){
+             if(grid[1][1] == " "){
+               grid[1][1]=turn;
+             }
+             chance7 = 8;
+             chance11 = 1;
+           }
+         }
+         if(chance8 == 8 && chance11 == 0){
+           if(grid[0][2] == "X" && grid[1][1] == "X"){
+             if(grid[2][0]==" "){
+               grid[2][0]=turn;
+             }
+             chance8 = 9;
+             chance11 = 1;
+           }
+         }
+         if(chance9 == 9 && chance11 == 0){
+           if(grid[0][2] == "X" && grid[2][0] == "X"){
+             if(grid[1][1]==" "){
+               grid[1][1]=turn;
+             }
+             chance9 = 10;
+             chance11 = 1;
+           }
+         }
+        if(chance10 == 10 && chance11 == 0){
+         if(grid[2][0] == "X" && grid[1][1] == "X"){
+           if(grid[0][2]==" "){
+             grid[0][2]=turn;
+           }
+           chance10 = 11;
+           chance11 = 1;
+         }
+         if(chance11 == 0){el();alert("Else");}
+         }
+       }
+        }
+      }
+     function winning(){
+       for(c = 0; c < 3;c++){
+         if(grid[c][0] == "X" && grid[c][1] == "X" && grid[c][2] == "X"){
+             ini = c+1;
+             document.getElementById('info').innerHTML = "Player X wins";
+             return true;
+           }
+         if(grid[c][0] == "O" && grid[c][1] == "O" && grid[c][2] == "O"){
+             ini = c+1;
+             document.getElementById('info').innerHTML = "Player O wins";
+             cwon = true;
+             return true;
+           }
+         }
+         for(d = 0; d < 3;d++){
+           if(grid[0][d] == "X" && grid[1][d] == "X" && grid[2][d] == "X"){
+               ini = d+4;
+               document.getElementById('info').innerHTML = "Player X wins";
+               return true;
+             }
+           if(grid[0][d] == "O" && grid[1][d] == "O" && grid[2][d] == "O"){
+               ini = d+4;
+               document.getElementById('info').innerHTML = "Player O wins";
+               cwon = true;
+               return true;
+             }
+           }
+         //Diagonal 1
+         if(grid[0][0]=="X" && grid[1][1]=="X" && grid[2][2]=="X" ){
+           ini = 7;
+           document.getElementById('info').innerHTML = "Player X wins";
+           return true;
+         }
+         if(grid[0][0]=="O" && grid[1][1]=="O" && grid[2][2]=="O" ){
+           ini = 7;
+           document.getElementById('info').innerHTML = "Player O wins";
+           cwon = true;
+           return true;
+         }
+         //Diagonal 2
+         if(grid[0][2]=="X" && grid[1][1]=="X" && grid[2][0]=="X" ){
+           ini = 8;
+           document.getElementById('info').innerHTML = "Player X wins";
+
+           return true;
+         }
+         if(grid[0][2]=="O" && grid[1][1]=="O" && grid[2][0]=="O" ){
+           ini = 8;
+           document.getElementById('info').innerHTML = "Player O wins";
+           cwon = true;
+           return true;
+         }
+         if(grid[0][0] != " " && grid[0][1] != " " && grid[0][2] != " "){
+           if(grid[1][0] != " " && grid[1][1] != " " && grid[1][2] != " "){
+             if(grid[2][0] != " " && grid[2][1] != " " && grid[2][2] != " "){
+              if(won == false){
+                tie = true;
+              }
+             }
+           }
+         }
+       }
+     //grid
+     ctx.beginPath();
+     ctx.lineWidth = 10;
+     ctx.strokeStyle = 'white';
+     ctx.moveTo(200,0);
+     ctx.lineTo(200,600);
+     ctx.stroke();
+     ctx.moveTo(400,0);
+     ctx.lineTo(400,600);
+     ctx.moveTo(0,200);
+     ctx.lineTo(600,200);
+     ctx.moveTo(0,400);
+     ctx.lineTo(600,400);
+     ctx.stroke();
+     canvas.addEventListener('click',function(evt){
+       if(won == false && cwon == false){
+             var rect = canvas.getBoundingClientRect();
+             var x = evt.clientX - rect.left;
+             var y = evt.clientY - rect.top;
+             if(x != 0){
+               if(y != 0){
+                 var t = Math.floor(x/200);
+                 var a = Math.floor(y/200);
+                 if(grid[t][a] == " "){
+                  if(turn=="X"){
+                     grid[t][a] = turn;
+                  }
+                   console.log(grid)
+                   if(winning() == true){
+                    won = true;
+                  }else{
+                    turns();
+                    computer();
+                    chance11 = 0;
+                    turns();
+
+                  }
+                }
+               }
+              }
+
+           }
+         for(i = 0; i < 3; i++){
+           for(a = 0; a < 3; a++){
+             ctx.font = "100px Arial";
+             ctx.fillStyle = "green";
+             ctx.fillText(grid[i][a],i * 200 + 53, a * 200 + 133);
+           }
+         }
+         if(ini == 1){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(90,50);
+           ctx.lineTo(90,550);
+           ctx.stroke();
+         }
+         if(ini == 2){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(290,50);
+           ctx.lineTo(290,550);
+           ctx.stroke();
+         }
+         if(ini == 3){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(490,50);
+           ctx.lineTo(490,550);
+           ctx.stroke();
+         }
+         if(ini == 4){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(50,90);
+           ctx.lineTo(550,90);
+           ctx.stroke();
+         }
+         if(ini == 5){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(50,290);
+           ctx.lineTo(550,290);
+           ctx.stroke();
+         }
+         if(ini == 6){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(50,490);
+           ctx.lineTo(550,490);
+           ctx.stroke();
+         }
+         if(ini == 7){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(50,50);
+           ctx.lineTo(540,540);
+           ctx.stroke();
+         }
+         if(ini == 8){
+           ctx.beginPath();
+           ctx.lineWidth = 10;
+           ctx.strokeStyle = 'white';
+           ctx.moveTo(540,50);
+           ctx.lineTo(50,540);
+           ctx.stroke();
+         }
+         if(winning() == true){
+           ctx.globalAlpha = 0.4;
+           ctx.fillStyle = "grey";
+           ctx.fillRect(0,0,600,600);
+           ctx.globalAlpha = 1;
+           ctx.fillStyle = "red";
+           ctx.font = "95px Arial"
+           if(cwon == true){
+            ctx.fillText("Player O wins",7,300);
+           }else{
+            ctx.fillText("Player X wins",7,300);
+           }
+         }
+         if(tie == true){
+           ctx.globalAlpha = 0.4;
+           ctx.fillStyle = "grey";
+           ctx.fillRect(0,0,600,600);
+           ctx.globalAlpha = 1;
+           ctx.fillStyle = "red";
+           ctx.font = "95px Arial"
+           ctx.fillText("Tie!",220,300);
+         }
+       });
+
+   </script>
+ </body>
+</html>

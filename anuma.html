@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body>
+   <canvas id="canvas" width="1000" height="600" style="background-color:black;"></canvas>
+   <script type="text/javascript">
+    var c = document.getElementById('canvas');
+    var ct = c.getContext('2d');
+    var Anim = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+    var angle = 0;
+    var radius = 150;
+    var number = 5;
+    function draw_c(){
+      ct.clearRect(0, 0, c.width, c.height);
+      ct.beginPath();
+      if(radius == 0){
+        number = -5;
+      }
+      if(radius == 170){
+        number = 5;
+      }
+      radius -= number;
+      ct.arc(c.width/2,c.height/2, radius, 0, Math.PI * 2, false);
+      ct.fillStyle = "yellow";
+      ct.fill();
+      ct.closePath();
+      angle += 0.01;
+      Anim(draw_c);
+    }
+   draw_c();
+   </script>
+
+ </body>
+</html>

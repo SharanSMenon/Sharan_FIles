@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title></title>
+ </head>
+ <body>
+   <canvas id="canvas" width="1000" height="600" style="background-color:black;"></canvas>
+   <script type="text/javascript">
+    var c = document.getElementById('canvas');
+    var ct = c.getContext('2d');
+    var Anim = window.requestAnimationFrame ||
+                            window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame ||
+                            window.msRequestAnimationFrame;
+    var angle = 0;
+    var radius = 150;
+    var number = 0.5;
+    var color = "powderBlue";
+    var lines = false;
+    function draw_c(){
+      ct.clearRect(0, 0, c.width, c.height);
+      ct.beginPath();
+      if(radius == 0){
+        number = -5;
+        ct.fillStyle = "yellow";
+        color = "yellow";
+        lines = true
+      }
+      if(lines == true){
+        ct.arc(500+radius+50, 300+radius+50, 50, 0,6.28, false);
+        ct.arc(500-radius-50, 300-radius-50, 50, 0,6.28, false);
+        ct.arc(500+radius+50, 300+radius+50, 50, 0,6.28, false);
+        ct.arc(500-radius-50, 300-radius-50, 50, 0,6.28, false);
+      }
+      radius -= number;
+      ct.arc(500, 300, radius, 0,6.28, false);
+      ct.fillStyle = color;
+      ct.fill();
+      ct.closePath();
+      angle += 0.01;
+      Anim(draw_c);
+    }
+   draw_c();
+   </script>
+
+ </body>
+</html>

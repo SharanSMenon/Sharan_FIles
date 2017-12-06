@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Full screen</title>
+    <style media="screen">
+      /*Navig*/
+      .navig{
+        background-color:rgb(0,0,0);
+        background-color:rgba(0,0,0,0.7);
+        position:fixed;
+        left:0;
+        top:0;
+        width:0%;
+        height:100%;
+        color:white;
+        transition:0.5s;
+        overflow:auto;
+      }
+      .navig a{
+        color:white;
+        text-decoration:none;
+        margin-bottom:10px;
+        font-size:25px;
+        background-color:;
+      }
+      .close{
+        position:absolute;
+        right:20px;
+        font-size:60px;
+        top:10px;
+      }
+      .content{
+        position: relative;
+        top: 25%; /* 25% from the top */
+        width: 100%; /* 100% width */
+        text-align: center; /* Centered text/links */
+        margin-top: 30px;
+      }
+      .items{
+        transition:0.3s;
+      }
+      body{
+        transition:0.3s;
+      }
+      a:hover{
+        color:grey;
+      }
+      .open{
+        color:black;
+        z-index:2;
+        text-decoration:none;
+        font-size:48px;
+        display:block;
+        position:relative;
+        width:50px;
+        margin-top:15px;
+      }
+      .open:hover{
+        color:black;
+      }
+      .closhelp{
+        display:none;
+        position:fixed;
+        top:0;
+        left:30%;
+        height:100%;
+        right:0;
+        background-color:none;
+      }
+      @media only screen and (max-width: 900px) {
+          .navig a {font-size: 18px;}
+      }
+      @media only screen and (max-width: 600px) {
+          .navig a {font-size: 11px;}
+      }
+      @media only screen and (max-width: 768px) {
+          .navig a {font-size: 15px;}
+      }
+      @media only screen and (max-width: 600px) {
+          .navig a {font-size: 11px;}
+      }
+    .change .bar1 {
+      -webkit-transform: rotate(-43deg) translate(-8px, 7px) ;
+      transform: rotate(-43deg) translate(-8px,7px) ;
+      background-color:white;
+    }
+
+    .change .bar2 {opacity: 0;}
+
+    .change .bar3 {
+      -webkit-transform: rotate(43deg) translate(-8px, -8px) ;
+      transform: rotate(43deg) translate(-8px, -8px) ;
+      background-color:white;
+    }
+    .bar1, .bar2, .bar3 {
+      width: 35px;
+      height: 5px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+    </style>
+  </head>
+  <body>
+    <a href="#" class="open">
+    <div class="continer" onclick="toggle(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+    </div>
+    </a>
+    <div class="items">
+      <p style="width:400px;height:200px;overflow:auto;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    </div>
+    <div class="navig">
+      <div class="content">
+        <a href="javascript:void(0)"><h1>Link 1</h1></a>
+        <a href="javascript:void(0)"><h1>Link 2</h1></a>
+        <a href="javascript:void(0)"><h1>Link 3</h1></a>
+      </div>
+    </div>
+    <div class="closhelp">
+
+    </div>
+    <script type="text/javascript">
+      var navig = document.getElementsByClassName('navig')[0];
+      var body = document.querySelector('.items');
+      var closhelp = document.getElementsByClassName('closhelp')[0];
+      var open1 = false;
+      function closeN(){
+        navig.style.width = "0%";
+        document.body.style.backgroundColor = "white";
+        open.style.color = "black";
+        closhelp.style.display = "none";
+        open1 = false;
+      }
+      function openN(){
+        navig.style.width = "30%";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        open.style.color = "white";
+        closhelp.style.display = "block";
+        open1 = true;
+      }
+      setInterval(function(){
+        if(window.innerWidth < 800 && open1 == true){
+          navig.style.width="100%";
+          closhelp.style.display = "none";
+        }
+        if(window.innerWidth > 800 && open1 == true) {
+          navig.style.width="30%"
+          closhelp.style.display = "block";
+        }
+      },1)
+      function toggle(x){
+      	x.classList.toggle("change");
+      }
+      var open = document.getElementsByClassName('open')[0];
+      open.onclick = function() {
+        if(open1 == false){
+          openN();
+        }else{
+          closeN();
+        }
+      }
+      window.onclick = function(event){
+        if(event.target == closhelp){
+          closeN();
+          var i  = document.querySelector('.continer')
+          toggle(i)
+        }
+      }
+    </script>
+  </body>
+</html>

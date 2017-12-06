@@ -1,0 +1,54 @@
+pre{
+  background-color:lightgrey;
+  display:inline-block;
+  padding-bottom:20px;
+  padding-left:10px;
+  padding-right:20px;
+  counter-reset: line-numbering;
+}
+pre .line::before {
+    content: counter(line-numbering);
+    counter-increment: line-numbering;
+    padding-right: 1em;
+    width: 10px;
+    font-size:10px;
+    color:black;
+    text-align: right;
+    opacity: 0.5;
+}
+code{
+  background-color:lightgrey;
+}
+body{
+  font-family: cursive;
+}
+nav{
+  padding:12px;
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  background-color:#eee;
+}
+.logo{
+  font-family: 'Geo', sans-serif;
+  font-size:25px;
+  background-color: grey;
+  color:white;
+  position:absolute;
+  top:0;
+  left:0;
+  padding:10px;
+}
+nav a:hover{
+  background-color:grey;
+  color:white;
+}
+nav a{
+  color:black;
+  position:relative;
+  margin-right:-5px;
+  border-right:1px solid black;
+  padding:12px;
+  background-color:#eee;
+}
